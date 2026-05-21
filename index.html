@@ -1,0 +1,2158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BOOM is a mobile-ready business operations platform for orders, inventory, payments, profit, tasks, chat, customer and supplier portals, analytics, and team permissions.">
+  <meta name="theme-color" content="#0f172a">
+  <meta property="og:title" content="BOOM - Run Your Business From One Command Center">
+  <meta property="og:description" content="Replace spreadsheets and scattered apps with one responsive operations platform built for commerce teams.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="boom-logo.png" type="image/png">
+  <title>BOOM | Business Operations & Optimization Management</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --card: rgba(255, 255, 255, 0.82);
+      --card-solid: #ffffff;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-soft: #dbeafe;
+      --cyan: #06b6d4;
+      --green: #16a34a;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --violet: #7c3aed;
+      --shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+      --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.08);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 34rem),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.16), transparent 30rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 34%, #eef6ff 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body.nav-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page-shell {
+      position: relative;
+      min-height: 100vh;
+      isolation: isolate;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, #000 0%, transparent 90%);
+    }
+
+    .orb {
+      position: fixed;
+      z-index: -1;
+      pointer-events: none;
+      filter: blur(18px);
+      opacity: 0.65;
+      border-radius: 999px;
+    }
+
+    .orb-one {
+      width: 18rem;
+      height: 18rem;
+      left: -7rem;
+      top: 20rem;
+      background: rgba(37, 99, 235, 0.22);
+    }
+
+    .orb-two {
+      width: 16rem;
+      height: 16rem;
+      right: -6rem;
+      top: 48rem;
+      background: rgba(124, 58, 237, 0.16);
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 76px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.18);
+      flex: 0 0 auto;
+      padding: 0.44rem;
+      overflow: hidden;
+    }
+
+    .brand-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1;
+    }
+
+    .brand-text strong {
+      font-size: 1.1rem;
+    }
+
+    .brand-text span {
+      margin-top: 0.25rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.35rem;
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.78);
+    }
+
+    .nav-links a {
+      padding: 0.62rem 0.88rem;
+      color: #334155;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-dark);
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--ink);
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 44px;
+      padding: 0.76rem 1.05rem;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), #0f172a);
+      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.3);
+      font-weight: 850;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      white-space: nowrap;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(37, 99, 235, 0.38);
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    .button.secondary {
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .button.ghost {
+      color: var(--primary-dark);
+      background: var(--primary-soft);
+      box-shadow: none;
+    }
+
+    .hero {
+      padding: 88px 0 46px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+      gap: clamp(2rem, 5vw, 4.8rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.15rem;
+      padding: 0.45rem 0.75rem;
+      color: #1e3a8a;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 999px;
+      background: rgba(219, 234, 254, 0.78);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+
+    .pulse {
+      width: 0.58rem;
+      height: 0.58rem;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 8px rgba(22, 163, 74, 0.12);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 1.25rem;
+      max-width: 920px;
+      font-size: clamp(2.85rem, 6.1vw, 5.9rem);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin-bottom: 1.7rem;
+      color: #475569;
+      font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+    }
+
+    .hero-copy strong {
+      color: var(--ink);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .proof-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 1.35rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .proof-strip li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.75rem;
+      color: #334155;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+      font-size: 0.9rem;
+      font-weight: 750;
+    }
+
+    .check {
+      display: grid;
+      place-items: center;
+      width: 1.15rem;
+      height: 1.15rem;
+      color: #fff;
+      border-radius: 999px;
+      background: var(--green);
+      font-size: 0.72rem;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .dashboard-card {
+      position: relative;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.9));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform: translateZ(0);
+    }
+
+    .dashboard-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 18rem),
+        radial-gradient(circle at bottom right, rgba(6, 182, 212, 0.14), transparent 16rem);
+      pointer-events: none;
+    }
+
+    .browser-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.48rem;
+      padding: 1rem 1.1rem;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .dot {
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 999px;
+      background: #cbd5e1;
+    }
+
+    .dot:nth-child(1) {
+      background: #fb7185;
+    }
+
+    .dot:nth-child(2) {
+      background: #fbbf24;
+    }
+
+    .dot:nth-child(3) {
+      background: #34d399;
+    }
+
+    .url-pill {
+      margin-left: 0.55rem;
+      padding: 0.38rem 0.75rem;
+      color: #64748b;
+      border-radius: 999px;
+      background: #f1f5f9;
+      font-size: 0.78rem;
+      font-weight: 750;
+    }
+
+    .mock-inner {
+      position: relative;
+      padding: 1.15rem;
+    }
+
+    .mock-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+      margin-bottom: 1rem;
+    }
+
+    .mock-title strong {
+      display: block;
+      font-size: 1.1rem;
+      letter-spacing: -0.035em;
+    }
+
+    .mock-title span {
+      display: block;
+      margin-top: 0.15rem;
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 700;
+    }
+
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      padding: 0.42rem 0.65rem;
+      color: #065f46;
+      border: 1px solid rgba(22, 163, 74, 0.18);
+      border-radius: 999px;
+      background: #dcfce7;
+      font-size: 0.78rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .metric {
+      padding: 0.95rem;
+      border: 1px solid rgba(226, 232, 240, 0.82);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .metric span {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .metric strong {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .metric small {
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .pipeline {
+      display: grid;
+      gap: 0.65rem;
+      padding: 0.85rem;
+      border: 1px solid rgba(226, 232, 240, 0.82);
+      border-radius: 22px;
+      background: rgba(15, 23, 42, 0.92);
+      color: #e2e8f0;
+    }
+
+    .pipeline-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.65rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .pipeline-row b {
+      color: #fff;
+      font-size: 0.86rem;
+    }
+
+    .pipeline-row span {
+      color: #94a3b8;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .status-dot {
+      width: 0.72rem;
+      height: 0.72rem;
+      border-radius: 999px;
+      background: var(--cyan);
+      box-shadow: 0 0 0 5px rgba(6, 182, 212, 0.16);
+    }
+
+    .status-dot.amber {
+      background: var(--amber);
+      box-shadow: 0 0 0 5px rgba(245, 158, 11, 0.16);
+    }
+
+    .status-dot.green {
+      background: var(--green);
+      box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.16);
+    }
+
+    .floating-note {
+      position: absolute;
+      right: -1.15rem;
+      bottom: 1.35rem;
+      width: min(260px, 52vw);
+      padding: 0.85rem;
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow-soft);
+      animation: float 4.8s ease-in-out infinite;
+    }
+
+    .floating-note strong {
+      display: block;
+      margin-bottom: 0.22rem;
+      font-size: 0.88rem;
+    }
+
+    .floating-note span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    section {
+      padding: clamp(58px, 8vw, 96px) 0;
+      scroll-margin-top: 90px;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 2.4rem;
+      text-align: center;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      margin-bottom: 0.85rem;
+      padding: 0.35rem 0.7rem;
+      color: var(--primary-dark);
+      border-radius: 999px;
+      background: var(--primary-soft);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 0.9rem;
+      font-size: clamp(2rem, 4.1vw, 3.75rem);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+    }
+
+    .section-head p,
+    .wide-copy {
+      color: #475569;
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+    }
+
+    .trust-row {
+      padding: 24px 0 10px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .trust-card {
+      min-height: 136px;
+      padding: 1.2rem;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .trust-card strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: clamp(1.55rem, 2.6vw, 2.25rem);
+      letter-spacing: -0.055em;
+    }
+
+    .trust-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .pain-grid,
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      position: relative;
+      padding: 1.25rem;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: var(--radius-sm);
+      background: var(--card);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% -50% 18%;
+      height: 8rem;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.09), transparent 66%);
+      pointer-events: none;
+    }
+
+    .icon-box {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+      border-radius: 16px;
+      background: var(--primary-soft);
+    }
+
+    .card h3 {
+      margin-bottom: 0.55rem;
+      font-size: 1.15rem;
+      letter-spacing: -0.035em;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .feature-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .tab-button {
+      padding: 0.7rem 0.95rem;
+      border: 1px solid rgba(226, 232, 240, 0.92);
+      border-radius: 999px;
+      color: #334155;
+      background: rgba(255, 255, 255, 0.78);
+      font-weight: 850;
+      cursor: pointer;
+      transition: 180ms ease;
+    }
+
+    .tab-button:hover,
+    .tab-button.active {
+      color: #fff;
+      border-color: transparent;
+      background: var(--primary);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
+    }
+
+    .feature-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.28fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .feature-copy {
+      min-height: 392px;
+      padding: 1.5rem;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .feature-copy h3 {
+      margin-bottom: 0.75rem;
+      font-size: clamp(1.65rem, 3vw, 2.45rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .feature-copy p {
+      color: #475569;
+      font-size: 1.05rem;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 0.7rem;
+      margin: 1.25rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.65rem;
+      align-items: start;
+      color: #334155;
+      font-weight: 720;
+    }
+
+    .screen {
+      padding: 0.35rem;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.26), transparent 18rem),
+        linear-gradient(145deg, #0f172a, #1e293b);
+      box-shadow: var(--shadow);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .screen-toolbar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .screen-toolbar span {
+      color: #94a3b8;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .screen-toolbar b {
+      font-size: 1rem;
+    }
+
+    .screenshot-shell {
+      position: relative;
+      display: grid;
+      aspect-ratio: 16 / 9;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .screenshot-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top center;
+      background: #020617;
+    }
+
+    .screenshot-fallback {
+      display: none;
+      place-items: center;
+      min-height: 392px;
+      padding: 1.25rem;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.055) 0 10px, transparent 10px 20px);
+    }
+
+    .screenshot-fallback strong {
+      display: block;
+      margin-bottom: 0.45rem;
+      color: #fff;
+      font-size: 1.15rem;
+      letter-spacing: -0.035em;
+    }
+
+    .screenshot-fallback span {
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+
+    .screen.missing-image .screenshot-image {
+      display: none;
+    }
+
+    .screen.missing-image .screenshot-fallback {
+      display: grid;
+    }
+
+    .screenshot-caption {
+      display: none;
+      margin: 0.85rem 0 0;
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+
+    .workflow {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+      color: #fff;
+    }
+
+    .workflow .section-head p,
+    .workflow .section-kicker {
+      color: #cbd5e1;
+    }
+
+    .workflow .section-kicker {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      counter-reset: flow;
+    }
+
+    .flow-card {
+      position: relative;
+      min-height: 236px;
+      padding: 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.065);
+      overflow: hidden;
+    }
+
+    .flow-card::before {
+      counter-increment: flow;
+      content: "0" counter(flow);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+      border-radius: 999px;
+      background: #fff;
+      font-weight: 950;
+    }
+
+    .flow-card h3 {
+      margin-bottom: 0.52rem;
+      font-size: 1.08rem;
+      letter-spacing: -0.035em;
+    }
+
+    .flow-card p {
+      color: #cbd5e1;
+      font-size: 0.94rem;
+    }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .role-card {
+      padding: 1.25rem;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.84);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .role-stack {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .role-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .role-pill b {
+      letter-spacing: -0.025em;
+    }
+
+    .role-pill span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 750;
+      text-align: right;
+    }
+
+    .calculator {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .calc-form,
+    .calc-result,
+    .lead-card {
+      padding: 1.35rem;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .field-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.38rem;
+      color: #334155;
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 15px;
+      color: var(--ink);
+      background: #fff;
+      outline: none;
+      transition: 160ms ease;
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+
+    .result-box {
+      padding: 1rem;
+      border-radius: 20px;
+      background: #eff6ff;
+    }
+
+    .result-box span {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: #1e3a8a;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .result-box strong {
+      font-size: 1.38rem;
+      letter-spacing: -0.045em;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    blockquote {
+      margin: 0;
+      min-height: 230px;
+      padding: 1.25rem;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow-soft);
+    }
+
+    blockquote p {
+      color: #334155;
+      font-size: 1rem;
+    }
+
+    .feedback-tag {
+      display: inline-flex;
+      margin-bottom: 0.85rem;
+      padding: 0.3rem 0.62rem;
+      color: #1e3a8a;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .faq-item {
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      padding: 1rem;
+      border: 0;
+      color: var(--ink);
+      background: transparent;
+      text-align: left;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 220ms ease;
+    }
+
+    .faq-answer > div {
+      overflow: hidden;
+    }
+
+    .faq-answer p {
+      margin: 0;
+      padding: 0 1rem 1rem;
+      color: var(--muted);
+    }
+
+    .faq-item.open .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .cta-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+      padding: clamp(1.1rem, 3vw, 2rem);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 22rem),
+        linear-gradient(135deg, #fff, #f8fafc);
+      box-shadow: var(--shadow);
+    }
+
+    .lead-card h3 {
+      margin-bottom: 0.35rem;
+      font-size: 1.45rem;
+      letter-spacing: -0.045em;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .form-status {
+      min-height: 1.4rem;
+      margin: 0.85rem 0 0;
+      color: #166534;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 38px 0;
+      color: #64748b;
+      border-top: 1px solid rgba(226, 232, 240, 0.9);
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      z-index: 45;
+      display: none;
+      transform: translateX(-50%);
+      width: min(420px, calc(100% - 32px));
+      padding: 0.55rem;
+      border: 1px solid rgba(226, 232, 240, 0.92);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .sticky-cta .button {
+      width: 100%;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
+
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1020px) {
+      .container {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 76px 14px auto;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.8rem;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.85rem 1rem;
+      }
+
+      .menu-button {
+        display: inline-flex;
+      }
+
+      .nav-actions .button {
+        display: none;
+      }
+
+      .hero-grid,
+      .feature-stage,
+      .roles-grid,
+      .calculator,
+      .faq-grid,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .dashboard-card {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+
+      .floating-note {
+        right: 1rem;
+      }
+
+      .trust-grid,
+      .workflow-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pain-grid,
+      .feature-grid,
+      .testimonials {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature-copy,
+      .screen {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        position: sticky;
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .hero {
+        padding: 42px 0 28px;
+      }
+
+      h1 {
+        font-size: clamp(2.45rem, 14vw, 3.65rem);
+      }
+
+      .hero-actions .button,
+      .button.full-mobile {
+        width: 100%;
+      }
+
+      .proof-strip li {
+        width: 100%;
+      }
+
+      .metrics,
+      .result-grid,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid,
+      .pain-grid,
+      .feature-grid,
+      .workflow-grid,
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-card,
+      .flow-card,
+      blockquote {
+        min-height: auto;
+      }
+
+      .mock-inner {
+        padding: 0.8rem;
+      }
+
+      .mock-top {
+        grid-template-columns: 1fr;
+      }
+
+      .screen,
+      .feature-copy,
+      .calc-form,
+      .calc-result,
+      .lead-card,
+      .role-card {
+        padding: 1rem;
+        border-radius: 22px;
+      }
+
+      .cta-panel,
+      .dashboard-card {
+        border-radius: 26px;
+      }
+
+      .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .sticky-cta {
+        display: block;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <div class="noise" aria-hidden="true"></div>
+    <div class="orb orb-one" aria-hidden="true"></div>
+    <div class="orb orb-two" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <nav class="nav container" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="BOOM home">
+          <span class="brand-mark">
+            <img class="brand-logo" src="boom-logo.png" alt="" width="32" height="32">
+          </span>
+          <span class="brand-text">
+            <strong>BOOM</strong>
+            <span>Operations command center</span>
+          </span>
+        </a>
+
+        <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" data-menu-button>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <div class="nav-links" data-nav-links>
+          <a href="#features">Features</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#security">Security</a>
+          <a href="#roi">ROI</a>
+          <a href="#faq">FAQ</a>
+        </div>
+
+        <div class="nav-actions">
+          <a class="button" href="#demo">Book demo</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div data-reveal>
+            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Built for teams outgrowing spreadsheets</div>
+            <h1>Run orders, inventory, payments, profit, chat, portals, and teams from one place.</h1>
+            <p class="hero-copy">
+              <strong>BOOM</strong> is Business Operations & Optimization Management for commerce operators who need clear data, faster execution, self-service customer and supplier access, and fewer manual follow-ups across every sale.
+            </p>
+            <div class="hero-actions">
+              <a class="button full-mobile" href="#demo">Get a conversion demo</a>
+              <a class="button secondary full-mobile" href="#features">See all features</a>
+            </div>
+            <ul class="proof-strip" aria-label="Platform highlights">
+              <li><span class="check">&#10003;</span> Mobile-first PWA</li>
+              <li><span class="check">&#10003;</span> Role-based access</li>
+              <li><span class="check">&#10003;</span> Customer & supplier portals</li>
+              <li><span class="check">&#10003;</span> Built-in chat</li>
+              <li><span class="check">&#10003;</span> Real-time alerts</li>
+              <li><span class="check">&#10003;</span> INR-ready finance</li>
+            </ul>
+          </div>
+
+          <div class="dashboard-card" data-reveal>
+            <div class="browser-bar" aria-hidden="true">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="url-pill">app.boom/command-center</span>
+            </div>
+            <div class="mock-inner">
+              <div class="mock-top">
+                <div class="mock-title">
+                  <strong>Today in BOOM</strong>
+                  <span>Live view across revenue, orders, stock, tasks, portals, chat, and dues</span>
+                </div>
+                <span class="live-pill"><span class="pulse" aria-hidden="true"></span> Live sync</span>
+              </div>
+
+              <div class="metrics" aria-label="Example dashboard metrics">
+                <div class="metric">
+                  <span>Revenue tracked</span>
+                  <strong>INR 8.4L <small>+18%</small></strong>
+                </div>
+                <div class="metric">
+                  <span>Orders moving</span>
+                  <strong>412 <small>32 due</small></strong>
+                </div>
+                <div class="metric">
+                  <span>Profit margin</span>
+                  <strong>27.8% <small>+4%</small></strong>
+                </div>
+                <div class="metric">
+                  <span>Stock alerts</span>
+                  <strong>11 <small>fix now</small></strong>
+                </div>
+              </div>
+
+              <div class="pipeline">
+                <div class="pipeline-row">
+                  <span class="status-dot"></span>
+                  <div><b>Order #4821</b><br><span>Confirmed, invoice ready</span></div>
+                  <span>INR 24K</span>
+                </div>
+                <div class="pipeline-row">
+                  <span class="status-dot amber"></span>
+                  <div><b>Restock action</b><br><span>6 products below threshold</span></div>
+                  <span>Assign</span>
+                </div>
+                <div class="pipeline-row">
+                  <span class="status-dot green"></span>
+                  <div><b>Payment received</b><br><span>Partial due auto-updated</span></div>
+                  <span>Done</span>
+                </div>
+              </div>
+            </div>
+            <div class="floating-note" aria-label="Notification example">
+              <strong>Push alert sent</strong>
+              <span>Task reminders, payment dues, chat threads, and low-stock alerts reach the right people even on mobile.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-row" aria-label="Conversion proof">
+        <div class="container trust-grid">
+          <div class="trust-card" data-reveal>
+            <strong data-count="15">0</strong>
+            <span>core modules in one operating system</span>
+          </div>
+          <div class="trust-card" data-reveal>
+            <strong data-count="30">0</strong>
+            <span>second auto-refresh on live dashboards</span>
+          </div>
+          <div class="trust-card" data-reveal>
+            <strong data-count="6">0</strong>
+            <span>role views for Admin, Manager, Staff, Viewer, Customer, Supplier</span>
+          </div>
+          <div class="trust-card" data-reveal>
+            <strong data-count="1">0</strong>
+            <span>source of truth for daily business decisions</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="section-kicker">The problem</span>
+            <h2>Growth breaks when every team works from a different version of truth.</h2>
+            <p>BOOM turns scattered updates into one dependable operating rhythm, so managers know what needs action, staff know what to do next, and customers or suppliers can self-serve without constant calls.</p>
+          </div>
+          <div class="pain-grid">
+            <article class="card" data-reveal>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 5h16M4 12h10M4 19h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <h3>Spreadsheets hide bottlenecks</h3>
+              <p>Orders, dues, low stock, and task ownership drift apart when the team updates files manually.</p>
+            </article>
+            <article class="card" data-reveal>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 7v6l4 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <h3>Follow-ups steal selling time</h3>
+              <p>Managers lose hours asking for status, checking dues, chasing stock updates, and verifying deliveries.</p>
+            </article>
+            <article class="card" data-reveal>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 8h14M7 16h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <h3>Profit gets discovered too late</h3>
+              <p>Revenue looks healthy until product cost, supplier bills, discounts, returns, and unpaid balances are reconciled.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="section-kicker">BOOM features</span>
+            <h2>Everything your operating team needs before, during, and after each sale.</h2>
+            <p>Explore the core command areas your team can use to run daily operations with less manual follow-up.</p>
+          </div>
+
+          <div class="feature-tabs" role="tablist" aria-label="BOOM feature areas" data-feature-tabs>
+            <button class="tab-button active" type="button" data-tab="orders">Orders</button>
+            <button class="tab-button" type="button" data-tab="inventory">Inventory</button>
+            <button class="tab-button" type="button" data-tab="profit">Profit</button>
+            <button class="tab-button" type="button" data-tab="tasks">Tasks</button>
+            <button class="tab-button" type="button" data-tab="crm">CRM</button>
+            <button class="tab-button" type="button" data-tab="finance">Payments</button>
+          </div>
+
+          <div class="feature-stage" data-reveal>
+            <article class="feature-copy">
+              <h3 data-feature-title>Enhanced order management without the chaos.</h3>
+              <p data-feature-body>Track status, due payments, notes, bulk actions, imports, invoices, and priority movement from one clean order workspace.</p>
+              <ul class="feature-list" data-feature-list>
+                <li><span class="check">&#10003;</span><span>Order stats for total, pending, and delivered-today performance.</span></li>
+                <li><span class="check">&#10003;</span><span>Bulk status actions, searchable lists, date filters, and sort controls.</span></li>
+                <li><span class="check">&#10003;</span><span>Invoice access, import workflows, customer details, and due tracking.</span></li>
+              </ul>
+            </article>
+
+            <aside class="screen" aria-label="BOOM product screenshot" data-screenshot-card>
+              <div class="screenshot-shell">
+                <img class="screenshot-image" data-screen-image src="boom-screens/orders.png" alt="BOOM orders dashboard screenshot" loading="lazy">
+                <div class="screenshot-fallback" data-screen-fallback>
+                  <div>
+                    <strong>BOOM preview unavailable</strong>
+                    <span>The product screenshot could not be loaded. Please refresh the page or contact the BOOM team for a live walkthrough.</span>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <div class="feature-grid" style="margin-top:1rem">
+            <article class="card" data-reveal>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7 12 3l8 4-8 4-8-4Zm0 5 8 4 8-4M4 17l8 4 8-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>Supplier and purchase control</h3>
+              <p>Track suppliers, purchase products, completion flows, supplier payments, and low-stock replenishment.</p>
+            </article>
+            <article class="card" data-reveal>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 16V9m4 7V7m4 9v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <h3>Analytics dashboard</h3>
+              <p>Revenue trends, order summaries, top products, task summaries, inventory analytics, and startup metrics.</p>
+            </article>
+            <article class="card" data-reveal>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 7h18s-3 0-3-7ZM13.7 21a2 2 0 0 1-3.4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>Push notifications</h3>
+              <p>Payment reminders, task alerts, low-stock warnings, and activity updates reach the right people fast.</p>
+            </article>
+            <article class="card" data-reveal>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 8h10M7 12h6m-8 8 3-3h9a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>Admin, customer, and supplier chat</h3>
+              <p>Built-in conversations with search, unread counts, seen status, mobile thread navigation, and PDF/CSV/XLS/XLSX attachments.</p>
+            </article>
+            <article class="card" data-reveal>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 20V7l7-4 7 4v13M9 20v-6h6v6M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>Customer self-service portal</h3>
+              <p>Customer-role users can place their own orders, view only their bills, see pending dues, and pay through Razorpay checkout.</p>
+            </article>
+            <article class="card" data-reveal>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h7l5 5v13M14 3v5h5M8 12h8M8 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>Supplier payment portal</h3>
+              <p>Supplier-role users get a restricted portal for their own completed bills, pending bills, total pending amount, and recent payment history.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="workflow" id="workflow">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="section-kicker">Operating rhythm</span>
+            <h2>From order capture to profit clarity in one connected flow.</h2>
+            <p>BOOM is built around the daily rhythm of commerce operations, not around disconnected menu screens.</p>
+          </div>
+          <div class="workflow-grid">
+            <article class="flow-card" data-reveal>
+              <h3>Capture demand</h3>
+              <p>Create orders, import data, connect customers, attach notes, and let customer accounts place their own orders from the portal.</p>
+            </article>
+            <article class="flow-card" data-reveal>
+              <h3>Protect stock</h3>
+              <p>Monitor SKU performance, low-stock risk, quick stock updates, discontinued products, suppliers, and purchase requirements.</p>
+            </article>
+            <article class="flow-card" data-reveal>
+              <h3>Assign execution</h3>
+              <p>Create tasks linked to orders, products, customers, and team members with due dates, priority, comments, and attachments.</p>
+            </article>
+            <article class="flow-card" data-reveal>
+              <h3>Close the money loop</h3>
+              <p>Record received payments, partial dues, Razorpay customer payments, supplier payables, profit margins, and loss-makers.</p>
+            </article>
+            <article class="flow-card" data-reveal>
+              <h3>Open secure portals</h3>
+              <p>Give customers their own bills and payments view, while suppliers get only their purchase-payment history and pending totals.</p>
+            </article>
+            <article class="flow-card" data-reveal>
+              <h3>Resolve through chat</h3>
+              <p>Keep Admin, Customer, and Supplier conversations inside BOOM with attachments, unread counts, seen status, and direct thread links.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="security">
+        <div class="container roles-grid">
+          <div class="role-card" data-reveal>
+            <span class="section-kicker">Access control</span>
+            <h2>Give every role the right view.</h2>
+            <p class="wide-copy">BOOM includes granular permissions so internal teams, customers, and suppliers can work safely without exposing financial data, admin controls, or unrelated records to the wrong users.</p>
+          </div>
+          <div class="role-card" data-reveal>
+            <div class="role-stack">
+              <div class="role-pill"><b>Admin</b><span>All modules, users, settings, backup, restore, audit</span></div>
+              <div class="role-pill"><b>Manager</b><span>Orders, products, customers, tasks, suppliers, finance, exports</span></div>
+              <div class="role-pill"><b>Staff</b><span>Daily orders, customer info, task status, restricted finance</span></div>
+              <div class="role-pill"><b>Viewer</b><span>Read-only visibility for operations and reporting</span></div>
+              <div class="role-pill"><b>Customer</b><span>Own orders, own bills, Razorpay payments, chat with admin</span></div>
+              <div class="role-pill"><b>Supplier</b><span>Own purchase/payment records, pending totals, chat with admin</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="roi">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="section-kicker">ROI calculator</span>
+            <h2>See the monthly cost of staying manual.</h2>
+            <p>Estimate how much time and cash-flow visibility your team can recover when orders, dues, portals, and follow-ups move into BOOM.</p>
+          </div>
+          <div class="calculator" data-reveal>
+            <form class="calc-form" data-roi-form>
+              <div class="field-grid">
+                <label>
+                  Orders per month
+                  <input type="number" min="0" step="1" name="orders" value="400">
+                </label>
+                <label>
+                  Team members in operations
+                  <input type="number" min="1" step="1" name="team" value="6">
+                </label>
+                <label>
+                  Manual follow-up hours per person per week
+                  <input type="number" min="0" step="0.5" name="hours" value="5">
+                </label>
+                <label>
+                  Average monthly unpaid dues in INR
+                  <input type="number" min="0" step="1000" name="dues" value="250000">
+                </label>
+              </div>
+            </form>
+            <div class="calc-result">
+              <span class="section-kicker">Estimated monthly impact</span>
+              <h3 style="font-size:clamp(1.8rem,3.5vw,3rem);line-height:1;margin-bottom:.8rem;letter-spacing:-.055em">A cleaner operating system pays for itself in reclaimed focus.</h3>
+              <p class="wide-copy">This estimate assumes BOOM reduces manual follow-up by 45% and helps surface 18% of at-risk dues faster.</p>
+              <div class="result-grid">
+                <div class="result-box">
+                  <span>Hours saved</span>
+                  <strong data-hours-saved>54</strong>
+                </div>
+                <div class="result-box">
+                  <span>Cash highlighted</span>
+                  <strong data-cash-unlocked>INR 45K</strong>
+                </div>
+                <div class="result-box">
+                  <span>Orders controlled</span>
+                  <strong data-orders-controlled>400</strong>
+                </div>
+              </div>
+              <a class="button" href="#demo">Review my ROI</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="section-kicker">Feedback from earlier demos</span>
+            <h2>What teams immediately noticed inside BOOM.</h2>
+          </div>
+          <div class="testimonials">
+            <blockquote data-reveal>
+              <span class="feedback-tag">Operations</span>
+              <p>"The dashboard makes it easy to see what moved today, what is stuck, what is due, and who owns the next step."</p>
+            </blockquote>
+            <blockquote data-reveal>
+              <span class="feedback-tag">Cash flow</span>
+              <p>"Connecting orders, payment dues, partial collections, and profit in one place removes a lot of manual reconciliation."</p>
+            </blockquote>
+            <blockquote data-reveal>
+              <span class="feedback-tag">Portals</span>
+              <p>"Customer and supplier portals reduce back-and-forth because outside parties can see only the records relevant to them."</p>
+            </blockquote>
+            <blockquote data-reveal>
+              <span class="feedback-tag">Execution</span>
+              <p>"Tasks, chat, attachments, and alerts being tied to the same workflow makes follow-up feel much more controlled."</p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="container faq-grid">
+          <div data-reveal>
+            <span class="section-kicker">FAQ</span>
+            <h2>Answers that remove buying friction.</h2>
+            <p class="wide-copy">Common questions teams ask before replacing spreadsheets, disconnected tools, and manual follow-up loops.</p>
+          </div>
+          <div class="faq-list" data-faq-list>
+            <article class="faq-item open" data-reveal>
+              <button class="faq-question" type="button">
+                Is BOOM only for large companies?
+                <span>+</span>
+              </button>
+              <div class="faq-answer"><div><p>No. BOOM is best for growing teams where manual tracking is starting to create missed dues, low-stock surprises, delayed tasks, and unclear accountability.</p></div></div>
+            </article>
+            <article class="faq-item" data-reveal>
+              <button class="faq-question" type="button">
+                Can staff use it without seeing sensitive financial data?
+                <span>+</span>
+              </button>
+              <div class="faq-answer"><div><p>Yes. Role-based permissions let staff manage daily work while managers and admins control finance, analytics, exports, users, and data operations. Customer and Supplier roles are also restricted to their own portal records.</p></div></div>
+            </article>
+            <article class="faq-item" data-reveal>
+              <button class="faq-question" type="button">
+                Do customers and suppliers get their own portal?
+                <span>+</span>
+              </button>
+              <div class="faq-answer"><div><p>Yes. Customers can place orders, view pending bills, review payment history, and pay via Razorpay. Suppliers can view their own completed bills, pending bills, total pending amount, and recent payments.</p></div></div>
+            </article>
+            <article class="faq-item" data-reveal>
+              <button class="faq-question" type="button">
+                Is chat built into BOOM?
+                <span>+</span>
+              </button>
+              <div class="faq-answer"><div><p>Yes. Admins can chat with linked customer and supplier accounts, with search, unread counts, seen status, mobile-friendly threads, and supported PDF, CSV, XLS, and XLSX attachments.</p></div></div>
+            </article>
+            <article class="faq-item" data-reveal>
+              <button class="faq-question" type="button">
+                Does it work on mobile?
+                <span>+</span>
+              </button>
+              <div class="faq-answer"><div><p>Yes. BOOM is a responsive web app with PWA and mobile app support, including push notifications for alerts and reminders.</p></div></div>
+            </article>
+            <article class="faq-item" data-reveal>
+              <button class="faq-question" type="button">
+                What makes BOOM different?
+                <span>+</span>
+              </button>
+              <div class="faq-answer"><div><p>BOOM brings enhanced modules across orders, tasks, customers, products, profit, payments, supplier workflows, customer and supplier portals, chat, permissions, notifications, and analytics so the product behaves like a complete command center.</p></div></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo">
+        <div class="container cta-panel" data-reveal>
+          <div>
+            <span class="section-kicker">Book a BOOM demo</span>
+            <h2>See how BOOM fits your operation.</h2>
+            <p class="wide-copy">Share a few details and the BOOM team will walk you through the modules that matter most for your workflow.</p>
+            <ul class="feature-list">
+              <li><span class="check">&#10003;</span><span>Personalized demo based on their current workflow.</span></li>
+              <li><span class="check">&#10003;</span><span>Clear ROI story around time saved, dues surfaced, portal self-service, chat, and team accountability.</span></li>
+              <li><span class="check">&#10003;</span><span>Mobile-ready experience for field teams, office teams, customers, and suppliers.</span></li>
+            </ul>
+          </div>
+          <form class="lead-card" data-lead-form>
+            <h3>Request a BOOM demo</h3>
+            <p style="color:var(--muted);margin-bottom:1rem">Tell us about your operations and we will prepare a focused walkthrough.</p>
+            <label>
+              Name
+              <input name="name" autocomplete="name" placeholder="Your name" required>
+            </label>
+            <div class="form-row" style="margin-top:.85rem">
+              <label>
+                Company
+                <input name="company" autocomplete="organization" placeholder="Company name" required>
+              </label>
+              <label>
+                Team size
+                <select name="teamSize" required>
+                  <option value="">Select</option>
+                  <option>1-5</option>
+                  <option>6-15</option>
+                  <option>16-50</option>
+                  <option>50+</option>
+                </select>
+              </label>
+            </div>
+            <label style="margin-top:.85rem">
+              Biggest operations challenge
+              <textarea name="challenge" placeholder="Orders, stock, dues, portals, chat, tasks, reporting, or all of the above?"></textarea>
+            </label>
+            <button class="button full-mobile" type="submit" style="margin-top:1rem;width:100%">Send on WhatsApp</button>
+            <p class="form-status" data-form-status aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <a class="brand" href="#top">
+          <span class="brand-mark">
+            <img class="brand-logo" src="boom-logo.png" alt="" width="32" height="32">
+          </span>
+          <span class="brand-text"><strong>BOOM</strong><span>Business Operations & Optimization Management</span></span>
+        </a>
+        <span>Built for modern commerce operations.</span>
+      </div>
+    </footer>
+
+    <div class="sticky-cta" aria-hidden="false">
+      <a class="button" href="#demo">Book BOOM demo</a>
+    </div>
+  </div>
+
+  <script>
+    const BOOM_WHATSAPP_NUMBER = "918838682275";
+
+    const featureData = {
+      orders: {
+        title: "Enhanced order management without the chaos.",
+        body: "Track status, due payments, notes, bulk actions, imports, invoices, admin-created orders, and customer portal orders from one clean workspace.",
+        list: [
+          "Order stats for total, pending, and delivered-today performance.",
+          "Bulk status actions, searchable lists, date filters, and sort controls.",
+          "Invoice access, import workflows, customer self-ordering, and due tracking."
+        ],
+        image: "boom-screens/orders.png",
+        alt: "BOOM enhanced orders dashboard screenshot"
+      },
+      inventory: {
+        title: "Inventory intelligence that prevents surprise stockouts.",
+        body: "Monitor SKUs, categories, suppliers, stock status, quick updates, low-stock alerts, product revenue, product profit, and performance trends.",
+        list: [
+          "Low-stock, out-of-stock, and in-stock visibility.",
+          "Quick stock adjustments with reasons and audit-friendly movement.",
+          "Product performance by revenue, profit, units sold, and last sold date."
+        ],
+        image: "boom-screens/inventory.png",
+        alt: "BOOM inventory and products dashboard screenshot"
+      },
+      profit: {
+        title: "Profit clarity before month-end panic.",
+        body: "Use revenue, COGS, total profit, margin, profit over time, most profitable products, and loss-making product views to act earlier.",
+        list: [
+          "Time filters for 7 days, 30 days, 90 days, 1 year, and custom ranges.",
+          "Profit-over-time charts and smart profitability insights.",
+          "Loss-maker detection so owners can fix pricing, cost, or stock decisions."
+        ],
+        image: "boom-screens/profit.png",
+        alt: "BOOM profit dashboard screenshot"
+      },
+      tasks: {
+        title: "Task execution connected to the work that matters.",
+        body: "Assign tasks to staff, connect them to orders, products, and customers, then track priority, due dates, overdue work, comments, and attachments.",
+        list: [
+          "Stats for pending, in progress, completed, overdue, due today, and my tasks.",
+          "Priority badges, assignment controls, comments, and file attachments.",
+          "Bulk actions and status updates for managers and staff."
+        ],
+        image: "boom-screens/tasks.png",
+        alt: "BOOM tasks dashboard screenshot"
+      },
+      crm: {
+        title: "Customer visibility plus a self-service customer portal.",
+        body: "Manage customers, segments, statuses, notes, order history, customer metrics, staff-safe views, and customer-role portal access.",
+        list: [
+          "CRM-style filtering by status, company, segment, search, and sorting.",
+          "Customer notes, customer metrics, order history, and status updates.",
+          "Customer accounts can place orders, view their own bills, pay via Razorpay, and chat with Admin."
+        ],
+        image: "boom-screens/customers.png",
+        alt: "BOOM customers dashboard screenshot"
+      },
+      finance: {
+        title: "Payments, dues, and portals tied back to the real operation.",
+        body: "Record received payments, partial payments, customer unpaid orders, Razorpay customer checkout, supplier payables, transaction references, and cash-flow filters.",
+        list: [
+          "Customer portal shows paid bills, pending bills, total amount due, and payment history.",
+          "Supplier portal shows completed bills, pending bills, total pending, and recent payments.",
+          "Payment method filters, transaction IDs, notes, Razorpay references, receivables, and payables."
+        ],
+        image: "boom-screens/payments.png",
+        alt: "BOOM payments dashboard screenshot"
+      }
+    };
+
+    const qs = (selector, scope = document) => scope.querySelector(selector);
+    const qsa = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+
+    const menuButton = qs("[data-menu-button]");
+    const navLinks = qs("[data-nav-links]");
+    if (menuButton && navLinks) {
+      menuButton.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        document.body.classList.toggle("nav-open", isOpen);
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      qsa("a", navLinks).forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          document.body.classList.remove("nav-open");
+          menuButton.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    qsa("[data-reveal]").forEach((el) => revealObserver.observe(el));
+
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.count || 0);
+        const duration = 900;
+        const start = performance.now();
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased).toString();
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        countObserver.unobserve(el);
+      });
+    }, { threshold: 0.7 });
+
+    qsa("[data-count]").forEach((el) => countObserver.observe(el));
+
+    const featureTabs = qs("[data-feature-tabs]");
+    if (featureTabs) {
+      const setFeature = (key) => {
+        const data = featureData[key];
+        if (!data) return;
+        qsa(".tab-button", featureTabs).forEach((button) => {
+          button.classList.toggle("active", button.dataset.tab === key);
+        });
+        qs("[data-feature-title]").textContent = data.title;
+        qs("[data-feature-body]").textContent = data.body;
+        qs("[data-feature-list]").innerHTML = data.list
+          .map((item) => `<li><span class="check">&#10003;</span><span>${item}</span></li>`)
+          .join("");
+        const screenshotCard = qs("[data-screenshot-card]");
+        const screenshotImage = qs("[data-screen-image]");
+        if (screenshotCard && screenshotImage) {
+          screenshotCard.classList.remove("missing-image");
+          screenshotImage.alt = data.alt;
+          screenshotImage.src = data.image;
+        }
+      };
+
+      featureTabs.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-tab]");
+        if (button) setFeature(button.dataset.tab);
+      });
+    }
+
+    const screenshotCard = qs("[data-screenshot-card]");
+    const screenshotImage = qs("[data-screen-image]");
+    if (screenshotCard && screenshotImage) {
+      screenshotImage.addEventListener("load", () => {
+        screenshotCard.classList.remove("missing-image");
+      });
+      screenshotImage.addEventListener("error", () => {
+        screenshotCard.classList.add("missing-image");
+      });
+    }
+
+    const roiForm = qs("[data-roi-form]");
+    const formatCompactINR = (value) => {
+      if (value >= 100000) return `INR ${(value / 100000).toFixed(value % 100000 === 0 ? 0 : 1)}L`;
+      if (value >= 1000) return `INR ${(value / 1000).toFixed(value % 1000 === 0 ? 0 : 1)}K`;
+      return `INR ${Math.round(value).toLocaleString("en-IN")}`;
+    };
+
+    const calculateRoi = () => {
+      if (!roiForm) return;
+      const form = new FormData(roiForm);
+      const orders = Number(form.get("orders") || 0);
+      const team = Number(form.get("team") || 1);
+      const hours = Number(form.get("hours") || 0);
+      const dues = Number(form.get("dues") || 0);
+      const monthlyManualHours = team * hours * 4.33;
+      const hoursSaved = Math.round(monthlyManualHours * 0.45);
+      const cashUnlocked = dues * 0.18;
+      qs("[data-hours-saved]").textContent = hoursSaved.toLocaleString("en-IN");
+      qs("[data-cash-unlocked]").textContent = formatCompactINR(cashUnlocked);
+      qs("[data-orders-controlled]").textContent = Math.round(orders).toLocaleString("en-IN");
+    };
+
+    if (roiForm) {
+      roiForm.addEventListener("input", calculateRoi);
+      calculateRoi();
+    }
+
+    const faqList = qs("[data-faq-list]");
+    if (faqList) {
+      faqList.addEventListener("click", (event) => {
+        const button = event.target.closest(".faq-question");
+        if (!button) return;
+        const item = button.closest(".faq-item");
+        qsa(".faq-item", faqList).forEach((faq) => {
+          if (faq !== item) faq.classList.remove("open");
+        });
+        item.classList.toggle("open");
+      });
+    }
+
+    const leadForm = qs("[data-lead-form]");
+    if (leadForm) {
+      leadForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const form = new FormData(leadForm);
+        const lead = Object.fromEntries(form.entries());
+        const message = [
+          "Hi, I would like to book a BOOM demo.",
+          "",
+          `Name: ${lead.name || ""}`,
+          `Company: ${lead.company || ""}`,
+          `Team size: ${lead.teamSize || ""}`,
+          "",
+          "Biggest operations challenge:",
+          lead.challenge || "Not provided"
+        ].join("\n");
+
+        const status = qs("[data-form-status]");
+        const whatsappUrl = `https://wa.me/${BOOM_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        status.textContent = "Opening WhatsApp with your demo request...";
+        window.location.href = whatsappUrl;
+      });
+    }
+
+    const sections = qsa("main section[id]");
+    const navAnchors = qsa(".nav-links a");
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navAnchors.forEach((anchor) => {
+          anchor.classList.toggle("active", anchor.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
+
+    sections.forEach((section) => activeObserver.observe(section));
+  </script>
+</body>
+</html>
