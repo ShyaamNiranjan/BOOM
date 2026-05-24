@@ -398,27 +398,32 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
-      padding: 0.35rem;
+      gap: 0.12rem;
+      padding: 0.28rem;
       border: 1px solid rgba(226, 232, 240, 0.85);
       border-radius: 999px;
       background: rgba(248, 250, 252, 0.78);
     }
 
     .nav-links a {
-      padding: 0.62rem 0.88rem;
+      padding: 0.58rem 0.64rem;
       color: #334155;
       border-radius: 999px;
-      font-size: 0.92rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      transition: 180ms ease;
+      transition: color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
+    .nav-links a:hover {
       color: var(--primary-dark);
       background: #fff;
       box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+    }
+
+    .nav-links a.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), #0f172a);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.26);
     }
 
     .nav-actions {
@@ -1659,10 +1664,14 @@
         <div class="nav-links" data-nav-links>
           <a href="#what-is-boom">What is BOOM?</a>
           <a href="#problems">Problems</a>
+          <a href="#features">Features</a>
           <a href="#solutions">Solutions</a>
           <a href="#use-cases">Use Cases</a>
-          <a href="#features">Features</a>
+          <a href="#workflow">Workflow</a>
           <a href="#compare">Compare</a>
+          <a href="#ownership">Ownership</a>
+          <a href="#security">Security</a>
+          <a href="#roi">ROI</a>
           <a href="#faq">FAQ</a>
         </div>
 
@@ -2605,18 +2614,30 @@
       });
     }
 
-    const sections = qsa("main section[id]");
     const navAnchors = qsa(".nav-links a");
+    const navSectionIds = new Set(navAnchors.map((anchor) => anchor.getAttribute("href")).filter(Boolean));
+    const sections = qsa("main section[id]").filter((section) => navSectionIds.has(`#${section.id}`));
+    const setActiveNav = (sectionId) => {
+      navAnchors.forEach((anchor) => {
+        const isActive = anchor.getAttribute("href") === `#${sectionId}`;
+        anchor.classList.toggle("active", isActive);
+        if (isActive) {
+          anchor.setAttribute("aria-current", "true");
+        } else {
+          anchor.removeAttribute("aria-current");
+        }
+      });
+    };
+
     const activeObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        navAnchors.forEach((anchor) => {
-          anchor.classList.toggle("active", anchor.getAttribute("href") === `#${entry.target.id}`);
-        });
+        setActiveNav(entry.target.id);
       });
     }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
 
     sections.forEach((section) => activeObserver.observe(section));
+    if (sections[0]) setActiveNav(sections[0].id);
   </script>
 </body>
 </html>
