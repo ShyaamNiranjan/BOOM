@@ -610,58 +610,23 @@
 
     .overview-screenshot-shell {
       position: relative;
+      display: grid;
+      place-items: center;
+      aspect-ratio: 16 / 9;
       padding: 0.75rem;
       background: rgba(248, 250, 252, 0.78);
     }
 
     .overview-screenshot {
+      display: block;
       width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      object-position: top left;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
       border: 1px solid rgba(226, 232, 240, 0.92);
       border-radius: 24px;
       background: #fff;
       box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12);
-    }
-
-    .browser-bar {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 0.48rem;
-      padding: 1rem 1.1rem;
-      border-bottom: 1px solid rgba(226, 232, 240, 0.75);
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    .dot {
-      width: 0.72rem;
-      height: 0.72rem;
-      border-radius: 999px;
-      background: #cbd5e1;
-    }
-
-    .dot:nth-child(1) {
-      background: #fb7185;
-    }
-
-    .dot:nth-child(2) {
-      background: #fbbf24;
-    }
-
-    .dot:nth-child(3) {
-      background: #34d399;
-    }
-
-    .url-pill {
-      margin-left: 0.55rem;
-      padding: 0.38rem 0.75rem;
-      color: #64748b;
-      border-radius: 999px;
-      background: #f1f5f9;
-      font-size: 0.78rem;
-      font-weight: 750;
     }
 
     .mock-inner {
@@ -1719,12 +1684,6 @@
           </div>
 
           <div class="dashboard-card" data-reveal>
-            <div class="browser-bar" aria-hidden="true">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="url-pill">app.boom/command-center</span>
-            </div>
             <div class="overview-screenshot-shell">
               <img class="overview-screenshot" src="boom-screens/overview-dashboard.png" alt="BOOM business dashboard showing revenue, orders, customers, inventory alerts, recent orders, and navigation" width="1024" height="576" loading="eager">
             </div>
