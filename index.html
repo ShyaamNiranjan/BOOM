@@ -83,8 +83,7 @@
           "availability": "https://schema.org/InStock",
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "priceCurrency": "INR",
-            "description": "BOOM is priced as a one-time license purchase. Final pricing depends on selected features, customization scope, deployment requirements, and implementation discussion after contact is established."
+            "description": "BOOM is priced as a one-time license purchase with multi-currency support. Final pricing depends on selected features, customization scope, deployment requirements, and implementation discussion after contact is established."
           }
         }
       },
@@ -2133,7 +2132,7 @@
                   <input type="number" min="0" step="0.5" name="hours" value="5">
                 </label>
                 <label>
-                  Average monthly unpaid dues in INR
+                  Average monthly unpaid dues in your currency
                   <input type="number" min="0" step="1000" name="dues" value="250000">
                 </label>
               </div>
@@ -2149,7 +2148,7 @@
                 </div>
                 <div class="result-box">
                   <span>Cash highlighted</span>
-                  <strong data-cash-unlocked>INR 45K</strong>
+                  <strong data-cash-unlocked>45K</strong>
                 </div>
                 <div class="result-box">
                   <span>Records controlled</span>
@@ -2513,10 +2512,10 @@
     }
 
     const roiForm = qs("[data-roi-form]");
-    const formatCompactINR = (value) => {
-      if (value >= 100000) return `INR ${(value / 100000).toFixed(value % 100000 === 0 ? 0 : 1)}L`;
-      if (value >= 1000) return `INR ${(value / 1000).toFixed(value % 1000 === 0 ? 0 : 1)}K`;
-      return `INR ${Math.round(value).toLocaleString("en-IN")}`;
+    const formatCompactCurrency = (value) => {
+      if (value >= 100000) return `${(value / 100000).toFixed(value % 100000 === 0 ? 0 : 1)}L`;
+      if (value >= 1000) return `${(value / 1000).toFixed(value % 1000 === 0 ? 0 : 1)}K`;
+      return Math.round(value).toLocaleString("en");
     };
 
     const calculateRoi = () => {
@@ -2529,9 +2528,9 @@
       const monthlyManualHours = team * hours * 4.33;
       const hoursSaved = Math.round(monthlyManualHours * 0.45);
       const cashUnlocked = dues * 0.18;
-      qs("[data-hours-saved]").textContent = hoursSaved.toLocaleString("en-IN");
-      qs("[data-cash-unlocked]").textContent = formatCompactINR(cashUnlocked);
-      qs("[data-orders-controlled]").textContent = Math.round(orders).toLocaleString("en-IN");
+      qs("[data-hours-saved]").textContent = hoursSaved.toLocaleString("en");
+      qs("[data-cash-unlocked]").textContent = formatCompactCurrency(cashUnlocked);
+      qs("[data-orders-controlled]").textContent = Math.round(orders).toLocaleString("en");
     };
 
     if (roiForm) {
