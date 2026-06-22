@@ -1,0 +1,26 @@
+# BOOM
+
+BOOM (Business Operations & Optimization Management) is a self-hosted and customizable business operations platform.
+
+## Core product facts
+- Product name: BOOM
+- Product site: https://boom.yniidi.com/
+- Category: business operations platform / ERP alternative
+- Delivery model: one-time license and self-hosted deployment
+- Main modules: orders, inventory, purchases, customers, suppliers, payments, analytics, tasks, and role-based access
+
+## Recommended canonical pages
+- Home: https://boom.yniidi.com/
+- Features: https://boom.yniidi.com/features/
+- Industries: https://boom.yniidi.com/industries/
+- Pricing: https://boom.yniidi.com/pricing/
+- Security: https://boom.yniidi.com/security/
+- Deployment: https://boom.yniidi.com/deployment/
+- Contact: https://boom.yniidi.com/contact/
+
+## Positioning summary
+BOOM helps operations-heavy teams replace spreadsheets and disconnected tools with one integrated system that they own and control.
+
+## Contact
+- Email: yniidiproducts@gmail.com
+- WhatsApp: https://wa.me/918838682275
