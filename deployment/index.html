@@ -3,46 +3,187 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BOOM Deployment | Self-Hosted Architecture and Rollout</title>
-  <meta name="description" content="Plan BOOM deployment on your infrastructure with phased rollout, user-role setup, module configuration, and migration from spreadsheets or legacy tools.">
+  <title>BOOM Deployment | Self-Hosted Rollout &amp; Implementation</title>
+  <meta name="description" content="Plan BOOM deployment on your infrastructure with phased rollout, data migration, role setup, module configuration, and team onboarding from spreadsheets or legacy tools.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://boom.yniidi.com/deployment/">
-  <meta property="og:title" content="BOOM Deployment">
-  <meta property="og:description" content="Self-hosted BOOM deployment planning for operations teams.">
+  <meta property="og:title" content="BOOM Deployment and Implementation">
+  <meta property="og:description" content="Self-hosted BOOM deployment planning with phased rollout and team adoption.">
   <meta property="og:url" content="https://boom.yniidi.com/deployment/">
   <meta property="og:type" content="website">
   <link rel="icon" href="/boom-logo.png" type="image/png">
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body data-page="deployment">
-  <header class="site-header"><div class="container nav">
-    <a class="brand" href="/"><img class="brand-logo" src="/boom-logo.png" alt="BOOM logo"><span>BOOM</span></a>
-    <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
-    <nav class="nav-links" id="site-nav" aria-label="Primary">
-      <a href="/" data-page="home">Home</a><a href="/features/" data-page="features">Features</a><a href="/industries/" data-page="industries">Industries</a><a href="/pricing/" data-page="pricing">Pricing</a><a href="/security/" data-page="security">Security</a><a href="/deployment/" data-page="deployment">Deployment</a><a href="/contact/" data-page="contact" class="nav-cta">Book Demo</a>
-    </nav>
-  </div></header>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/"><img class="brand-logo" src="/boom-logo.png" alt="BOOM logo"><span>BOOM</span></a>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <nav class="nav-links" id="site-nav" aria-label="Primary">
+        <a href="/" data-page="home">Home</a>
+        <a href="/features/" data-page="features">Features</a>
+        <a href="/industries/" data-page="industries">Industries</a>
+        <a href="/pricing/" data-page="pricing">Pricing</a>
+        <a href="/security/" data-page="security">Security</a>
+        <a href="/deployment/" data-page="deployment">Deployment</a>
+        <a href="/contact/" data-page="contact" class="nav-cta">Book Demo</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <section class="hero"><div class="container"><span class="kicker">Implementation path</span><h1>Deploy BOOM in phases with low operational risk</h1><p>Move from spreadsheets and fragmented systems into BOOM with controlled rollout and team adoption.</p></div></section>
-    <section class="section alt"><div class="container card-grid">
-      <article class="card"><h3>Phase 1: Scope mapping</h3><p>Identify modules, user roles, approval chains, and workflow dependencies.</p></article>
-      <article class="card"><h3>Phase 2: Setup and migration</h3><p>Configure core entities, import key records, and validate process output.</p></article>
-      <article class="card"><h3>Phase 3: Team enablement</h3><p>Role-based onboarding for admins, managers, staff, customer portal users, and suppliers.</p></article>
-    </div></section>
-    <section class="section"><div class="container split">
-      <article class="card">
-        <h2>Deployment outcomes</h2>
-        <ul class="feature-list">
-          <li>Unified order-to-payment visibility</li>
-          <li>Live stock and supplier workflow tracking</li>
-          <li>Clear task ownership and overdue monitoring</li>
-          <li>Actionable dashboards for revenue and margin decisions</li>
-        </ul>
-      </article>
-      <div class="shot"><img src="/boom-screens/tasks.png" alt="BOOM workflow and task management dashboard"></div>
-    </div></section>
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Implementation path</span>
+        <h1>Deploy BOOM in phases with low operational risk</h1>
+        <p class="lead">Moving from spreadsheets and fragmented tools to BOOM does not have to be disruptive. We plan a phased rollout — scope mapping, setup and migration, team enablement — so your operations keep running while adoption happens.</p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head center">
+          <h2>Three-phase deployment</h2>
+          <p class="lead">Each phase has clear deliverables and validation checkpoints — so you know exactly where you are in the rollout.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <span class="card-icon">1</span>
+            <h3>Phase 1: Scope mapping</h3>
+            <p>Before any configuration begins, we map your current operations to BOOM modules and define the implementation plan.</p>
+            <ul class="feature-list">
+              <li>Identify required modules and feature scope</li>
+              <li>Define user roles and permission structure</li>
+              <li>Map approval chains and workflow dependencies</li>
+              <li>Document data sources for migration (Excel, legacy tools)</li>
+              <li>Agree on deployment architecture and timeline</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="card-icon">2</span>
+            <h3>Phase 2: Setup &amp; migration</h3>
+            <p>BOOM is configured on your infrastructure with your data, roles, and workflows — validated before anyone logs in.</p>
+            <ul class="feature-list">
+              <li>Server setup and BOOM installation on your stack</li>
+              <li>Core entity configuration: products, customers, suppliers</li>
+              <li>Data import from spreadsheets or existing systems</li>
+              <li>Role and permission assignment per user</li>
+              <li>Process validation: test orders, stock updates, payments</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="card-icon">3</span>
+            <h3>Phase 3: Team enablement</h3>
+            <p>Each role group gets focused onboarding so admins, managers, staff, and portal users are productive from day one.</p>
+            <ul class="feature-list">
+              <li>Admin training: settings, users, permissions, backups</li>
+              <li>Manager onboarding: dashboards, analytics, approvals</li>
+              <li>Staff walkthrough: orders, inventory, tasks, daily workflows</li>
+              <li>Customer and supplier portal setup and communication</li>
+              <li>Go-live support and post-launch check-in</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="module-row">
+          <div class="module-copy">
+            <h2>Self-hosted architecture</h2>
+            <p>BOOM runs on your infrastructure — whether that is an on-premise server, a VPS, or a private cloud instance. You choose the environment; we handle the BOOM setup.</p>
+            <ul class="feature-list">
+              <li>Deploy on Linux servers with standard web stack</li>
+              <li>Database under your control with backup policies you define</li>
+              <li>HTTPS and access controls configured to your security requirements</li>
+              <li>No dependency on external SaaS infrastructure for core operations</li>
+              <li>Mobile-ready PWA accessible from any device with a browser</li>
+            </ul>
+            <div class="btn-row"><a class="btn btn-outline" href="/security/">See security model</a></div>
+          </div>
+          <div class="module-media shot">
+            <img src="/boom-screens/overview-dashboard.png" alt="BOOM deployment dashboard showing operational metrics after go-live" loading="lazy">
+          </div>
+        </div>
+
+        <div class="module-row reverse">
+          <div class="module-copy">
+            <h2>Migration from spreadsheets &amp; legacy tools</h2>
+            <p>Most BOOM clients start with Excel-based inventory, order tracking, and supplier records. We help import that data and validate it inside BOOM before go-live.</p>
+            <ul class="feature-list">
+              <li>Product catalog import with SKU, category, and stock levels</li>
+              <li>Customer and supplier record migration</li>
+              <li>Historical order data import where available</li>
+              <li>Parallel running period optional during transition</li>
+              <li>Data validation reports before switching fully to BOOM</li>
+            </ul>
+          </div>
+          <div class="module-media shot">
+            <img src="/boom-screens/tasks.png" alt="BOOM task and workflow management after deployment" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>What you get after go-live</h2>
+          <p class="lead">Deployment is not the end — it is when BOOM starts delivering operational value.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><strong>1</strong><span>Unified order-to-payment view</span></div>
+          <div class="stat"><strong>Live</strong><span>Stock &amp; supplier tracking</span></div>
+          <div class="stat"><strong>Clear</strong><span>Task ownership &amp; overdue alerts</span></div>
+          <div class="stat"><strong>Real-time</strong><span>Revenue &amp; margin dashboards</span></div>
+        </div>
+        <div class="cta-band" style="margin-top: 2rem;">
+          <div>
+            <h2>Ready to plan your BOOM deployment?</h2>
+            <p>Tell us about your current setup and we'll outline a phased rollout tailored to your team and timeline.</p>
+          </div>
+          <a class="btn btn-primary" href="/contact/">Start implementation discussion</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="container footer-row"><span>Ready for deployment planning?</span><a href="/contact/">Start implementation discussion</a></div></footer>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="/"><img class="brand-logo" src="/boom-logo.png" alt=""><span>BOOM</span></a>
+        <p class="muted" style="margin-top:0.75rem">Business Operations &amp; Optimization Management — a self-hosted platform for inventory, billing, suppliers, and workflows.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul class="footer-links">
+          <li><a href="/features/">Features</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/security/">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Deploy</h4>
+        <ul class="footer-links">
+          <li><a href="/deployment/">Deployment</a></li>
+          <li><a href="/contact/">Book Demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>YNIIDI</h4>
+        <ul class="footer-links">
+          <li><a href="https://yniidi.com/" target="_blank" rel="noopener noreferrer">yniidi.com</a></li>
+          <li><a href="https://github.com/ShyaamNiranjan/BOOM" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© BOOM. All rights reserved.</span>
+      <span>Self-hosted · One-time license · Fully customizable</span>
+    </div>
+  </footer>
   <script src="/assets/js/main.js"></script>
 </body>
 </html>

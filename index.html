@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BOOM | Self-Hosted Business Operations Platform</title>
-  <meta name="description" content="BOOM is a self-hosted, customizable business operations platform for inventory, orders, billing, customers, suppliers, analytics, and team workflows.">
+  <meta name="description" content="BOOM is a self-hosted, customizable business operations platform for inventory, orders, billing, customers, suppliers, analytics, and team workflows. One-time license. No SaaS lock-in.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://boom.yniidi.com/">
   <meta property="og:title" content="BOOM | Self-Hosted Business Operations Platform">
@@ -26,11 +26,13 @@
         "@type": "Organization",
         "name": "BOOM",
         "url": "https://boom.yniidi.com/",
-        "logo": "https://boom.yniidi.com/boom-logo.png"
+        "logo": "https://boom.yniidi.com/boom-logo.png",
+        "parentOrganization": { "@type": "Organization", "name": "YNIIDI", "url": "https://yniidi.com/" }
       },
       {
         "@type": "SoftwareApplication",
         "name": "BOOM",
+        "alternateName": "Business Operations & Optimization Management",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web browser",
         "url": "https://boom.yniidi.com/",
@@ -44,10 +46,15 @@
           "Profit dashboard and analytics",
           "One-time license and self-hosted deployment"
         ],
-        "offers": {
-          "@type": "Offer",
-          "availability": "https://schema.org/InStock"
-        }
+        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is BOOM?", "acceptedAnswer": { "@type": "Answer", "text": "BOOM is a self-hosted business operations platform that unifies inventory, orders, billing, suppliers, workflows, and reporting in one system your company owns." }},
+          { "@type": "Question", "name": "Is BOOM an ERP?", "acceptedAnswer": { "@type": "Answer", "text": "BOOM is a modern ERP alternative focused on practical daily operations with cleaner workflows and faster adoption than traditional ERP systems." }},
+          { "@type": "Question", "name": "Is BOOM self-hosted?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. BOOM runs on your own infrastructure with a one-time license — no mandatory SaaS subscription." }}
+        ]
       }
     ]
   }
@@ -56,13 +63,8 @@
 <body data-page="home">
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="/">
-        <img class="brand-logo" src="/boom-logo.png" alt="BOOM logo">
-        <span>BOOM</span>
-      </a>
-      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-nav">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="brand" href="/"><img class="brand-logo" src="/boom-logo.png" alt="BOOM logo"><span>BOOM</span></a>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
       <nav class="nav-links" id="site-nav" aria-label="Primary">
         <a href="/" data-page="home">Home</a>
         <a href="/features/" data-page="features">Features</a>
@@ -78,66 +80,175 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-copy">
           <span class="kicker">Business Operations Platform</span>
-          <h1>BOOM helps teams run operations in one owned system.</h1>
-          <p>Replace fragmented tools and spreadsheet workflows with a unified platform for orders, inventory, billing, suppliers, tasks, payments, and analytics.</p>
+          <h1>Run your entire operation in one system you own.</h1>
+          <p class="lead">BOOM replaces spreadsheets, disconnected tools, and manual handoffs with a unified platform for orders, inventory, billing, suppliers, tasks, payments, and analytics — deployed on your infrastructure, under your control.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href="/contact/">Request a demo</a>
-            <a class="btn btn-outline" href="/features/">Explore features</a>
+            <a class="btn btn-outline" href="/features/">Explore all features</a>
+          </div>
+          <div class="pill-row">
+            <span class="pill">Self-hosted</span>
+            <span class="pill">One-time license</span>
+            <span class="pill">Fully customizable</span>
+            <span class="pill">ERP alternative</span>
           </div>
         </div>
         <div class="shot">
-          <img src="/boom-screens/overview-dashboard.png" alt="BOOM dashboard with inventory, orders, and business metrics">
+          <img src="/boom-screens/overview-dashboard.png" alt="BOOM dashboard showing inventory, orders, revenue metrics, and operational alerts" fetchpriority="high">
         </div>
       </div>
     </section>
 
     <section class="section alt">
       <div class="container">
-        <h2>What BOOM unifies</h2>
+        <div class="section-head center">
+          <h2>What BOOM unifies</h2>
+          <p class="lead">Stop switching between Excel, WhatsApp, and five different apps. BOOM connects every operational workflow into one shared data layer.</p>
+        </div>
         <div class="card-grid">
           <article class="card">
-            <h3>Orders, billing, and dues</h3>
-            <p>Track statuses, invoices, partial payments, and due follow-ups in one process flow.</p>
+            <span class="card-icon">↗</span>
+            <h3>Orders, billing &amp; dues</h3>
+            <p>Track every order from placement to delivery with invoice references, partial payments, due amounts, and customer-linked history — all in one searchable workspace.</p>
+            <ul class="feature-list">
+              <li>Status workflow with bulk updates</li>
+              <li>Invoice and due tracking per order</li>
+              <li>Order import from spreadsheets</li>
+              <li>Customer request and note history</li>
+            </ul>
           </article>
           <article class="card">
-            <h3>Inventory and suppliers</h3>
-            <p>Manage products, stock alerts, purchases, supplier records, and payables from one workspace.</p>
+            <span class="card-icon">◫</span>
+            <h3>Inventory &amp; suppliers</h3>
+            <p>Manage product catalogs, stock levels, purchase records, and supplier payables without losing context between procurement and sales.</p>
+            <ul class="feature-list">
+              <li>SKU tracking with low-stock alerts</li>
+              <li>Supplier records and purchase history</li>
+              <li>Pending payable totals and payment tracking</li>
+              <li>Product performance tied to profit data</li>
+            </ul>
           </article>
           <article class="card">
-            <h3>Tasks and accountability</h3>
-            <p>Assign work, set priorities, monitor overdue tasks, and keep decisions tied to operational data.</p>
+            <span class="card-icon">✓</span>
+            <h3>Tasks &amp; accountability</h3>
+            <p>Assign operational work with clear ownership, deadlines, and status — so managers know what is overdue and staff know what to do next.</p>
+            <ul class="feature-list">
+              <li>Priority, due date, and assignee per task</li>
+              <li>Overdue and due-today dashboard alerts</li>
+              <li>Comments and file attachments</li>
+              <li>Bulk status updates across task lists</li>
+            </ul>
           </article>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><strong>12+</strong><span>Core modules</span></div>
+          <div class="stat"><strong>6</strong><span>Built-in roles</span></div>
+          <div class="stat"><strong>40+</strong><span>Permission keys</span></div>
+          <div class="stat"><strong>0</strong><span>Subscription fees</span></div>
         </div>
       </div>
     </section>
 
     <section class="section">
+      <div class="container">
+        <div class="module-row">
+          <div class="module-copy">
+            <h2>Built for ownership, not lock-in</h2>
+            <p>Unlike SaaS platforms that hold your data hostage, BOOM is software you buy once and deploy on your own servers. Your data stays under your control, and the system adapts to how your business actually works.</p>
+            <ul class="feature-list">
+              <li>Self-hosted deployment on your infrastructure or cloud</li>
+              <li>One-time license — no recurring subscription required</li>
+              <li>Customizable modules, permissions, screens, and workflows</li>
+              <li>Role-based access for Admin, Manager, Staff, Viewer, Customer, and Supplier</li>
+              <li>Customer and supplier portals with restricted, role-safe views</li>
+              <li>Mobile-ready PWA with push notifications for alerts and chat</li>
+            </ul>
+            <div class="btn-row"><a class="btn btn-outline" href="/deployment/">See deployment options</a></div>
+          </div>
+          <div class="module-media shot">
+            <img src="/boom-screens/customers.png" alt="BOOM customer management with records, segments, and portal access" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
       <div class="container split">
-        <article class="card">
-          <h2>Built for ownership</h2>
-          <ul class="feature-list">
-            <li>Self-hosted deployment on your own infrastructure</li>
-            <li>One-time license model instead of recurring SaaS lock-in</li>
-            <li>Customizable modules, permissions, and workflows</li>
-            <li>Role-based access for Admin, Manager, Staff, Customer, and Supplier</li>
-          </ul>
-        </article>
         <article class="card faq">
           <h2>Common questions</h2>
-          <details><summary>Is BOOM an ERP?</summary><p>BOOM is a modern ERP alternative focused on practical daily operations with cleaner workflows and faster adoption.</p></details>
-          <details><summary>Does BOOM support large teams?</summary><p>Yes. BOOM supports scaling teams with permissions, dashboards, workflow ownership, and portal access controls.</p></details>
-          <details><summary>Can BOOM be customized?</summary><p>Yes. Modules, screens, permissions, and process logic can be adjusted to match each company.</p></details>
+          <details><summary>What is BOOM?</summary><p>BOOM is a unified business operations platform that helps companies manage inventory, billing, suppliers, workflows, reporting, portals, and internal coordination in one self-hosted system.</p></details>
+          <details><summary>Is BOOM an ERP system?</summary><p>BOOM is best understood as a modern ERP alternative. It centralizes inventory, billing, suppliers, workflows, portals, and reporting without the complexity and cost of traditional ERP software.</p></details>
+          <details><summary>Can BOOM replace Excel?</summary><p>Yes. BOOM replaces Excel and disconnected systems when companies need shared records, live dashboards, permissions, alerts, workflow ownership, and reporting across inventory, suppliers, billing, and team coordination.</p></details>
+          <details><summary>Does BOOM support large teams?</summary><p>Yes. BOOM supports scaling teams with role-based permissions, shared dashboards, workflow ownership, customer and supplier portals, reporting, and alerts.</p></details>
+          <details><summary>Is BOOM self-hosted?</summary><p>Yes. BOOM runs on your own system or server. You own the deployment and control the data environment — no mandatory SaaS lock-in.</p></details>
         </article>
+        <article class="card">
+          <h2>Who uses BOOM</h2>
+          <p>BOOM is built for operations-heavy businesses that have outgrown spreadsheets but do not want the overhead of traditional ERP.</p>
+          <ul class="feature-list">
+            <li>Wholesalers managing high order volume and supplier relationships</li>
+            <li>Retail operations tracking inventory, payments, and customer records</li>
+            <li>Distribution teams connecting stock, orders, and receivables</li>
+            <li>Growing companies standardizing workflows across departments</li>
+            <li>Multi-role organizations with customer and supplier partners</li>
+          </ul>
+          <div class="btn-row"><a class="btn btn-primary" href="/industries/">See industry use cases</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="geo-block">
+          <h3>BOOM at a glance (for search engines and AI assistants)</h3>
+          <p><strong>BOOM</strong> (Business Operations &amp; Optimization Management) is a self-hosted, customizable business operations platform by <a href="https://yniidi.com/">YNIIDI</a>. It is an ERP alternative for wholesalers, retailers, distributors, and operations-heavy teams. Core capabilities include order management, inventory control, purchase and supplier workflows, billing and payment collection (including Razorpay), profit and analytics dashboards, task management, customer and supplier portals, internal chat, role-based access control, and mobile-ready PWA with push notifications. BOOM is sold as a one-time license with self-hosted deployment — not a recurring SaaS subscription.</p>
+        </div>
+        <div class="cta-band" style="margin-top: 2rem;">
+          <div>
+            <h2>Ready to see BOOM in action?</h2>
+            <p>Book a personalized demo focused on the modules and workflows that matter most for your operation.</p>
+          </div>
+          <a class="btn btn-primary" href="/contact/">Book a demo</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-row">
-      <span>BOOM - Business Operations & Optimization Management</span>
-      <span>© BOOM. Built for scalable operations.</span>
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="/"><img class="brand-logo" src="/boom-logo.png" alt=""><span>BOOM</span></a>
+        <p class="muted" style="margin-top:0.75rem">Business Operations &amp; Optimization Management — a self-hosted platform for inventory, billing, suppliers, and workflows.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul class="footer-links">
+          <li><a href="/features/">Features</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/security/">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Deploy</h4>
+        <ul class="footer-links">
+          <li><a href="/deployment/">Deployment</a></li>
+          <li><a href="/contact/">Book Demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>YNIIDI</h4>
+        <ul class="footer-links">
+          <li><a href="https://yniidi.com/" target="_blank" rel="noopener noreferrer">yniidi.com</a></li>
+          <li><a href="https://github.com/ShyaamNiranjan/BOOM" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© BOOM. All rights reserved.</span>
+      <span>Self-hosted · One-time license · Fully customizable</span>
     </div>
   </footer>
   <script src="/assets/js/main.js"></script>
