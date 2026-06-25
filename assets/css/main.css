@@ -232,16 +232,15 @@ p { margin: 0 0 1rem; color: #334155; }
 }
 .shot img { border-radius: 12px; width: 100%; }
 
-.module-row-media-fill { align-items: stretch; }
+.module-row-media-fill { align-items: start; }
 .module-row-media-fill .shot {
-  display: flex;
-  padding: 0.5rem;
+  height: auto;
+  padding: 0.25rem;
 }
 .module-row-media-fill .shot img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
+  display: block;
 }
 
 /* Pills & stats */
