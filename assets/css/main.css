@@ -199,6 +199,68 @@ p { margin: 0 0 1rem; color: #334155; }
 .feature-list li { margin: 0.45rem 0; }
 .feature-list li::marker { color: #2563eb; }
 
+/* Pricing tiers */
+.pricing-tiers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+.pricing-tier {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 1.5rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+}
+.pricing-tier.featured {
+  border-color: #93c5fd;
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.12);
+  background: linear-gradient(180deg, #f8fbff 0%, #fff 100%);
+  position: relative;
+}
+.pricing-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: 0.75rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.pricing-tier h3 {
+  margin-bottom: 0.35rem;
+  color: #0f172a;
+}
+.pricing-tagline {
+  color: #475569;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+}
+.pricing-price {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1d4ed8;
+  margin-bottom: 0.85rem;
+}
+.pricing-tier p { margin-bottom: 0.75rem; }
+.pricing-tier .feature-list { flex: 1; }
+.pricing-tier .btn { margin-top: 1.25rem; align-self: flex-start; }
+.pricing-limit { color: #64748b; }
+.pricing-note {
+  margin: 1.35rem auto 0;
+  max-width: 62rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.92rem;
+}
+
 /* Module detail rows */
 .module-row {
   display: grid;
@@ -353,7 +415,7 @@ p { margin: 0 0 1rem; color: #334155; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .hero-grid, .split, .card-grid, .card-grid.two, .module-row, .stat-row, .footer-grid {
+  .hero-grid, .split, .card-grid, .card-grid.two, .module-row, .stat-row, .footer-grid, .pricing-tiers {
     grid-template-columns: 1fr;
   }
   .module-row.reverse .module-copy,
