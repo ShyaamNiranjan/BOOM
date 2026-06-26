@@ -59,15 +59,32 @@
           </ul>
         </article>
         <article class="card">
-          <h2>Contact channels</h2>
-          <p>Reach the BOOM team directly. We respond to demo requests within one business day.</p>
-          <p style="margin-top:1.25rem"><strong>Email</strong><br><a href="mailto:yniidiproducts@gmail.com">yniidiproducts@gmail.com</a></p>
-          <p><strong>WhatsApp</strong><br><a href="https://wa.me/918838682275" target="_blank" rel="noopener noreferrer">+91 88386 82275</a></p>
-          <p><strong>Parent company</strong><br><a href="https://yniidi.com/" target="_blank" rel="noopener noreferrer">YNIIDI — yniidi.com</a></p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="https://wa.me/918838682275?text=Hi%20BOOM%20team%2C%20I%20want%20a%20product%20demo.%20My%20business%20is%20in%20___%20and%20we%20need%20help%20with%20___." target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
-            <a class="btn btn-outline" href="mailto:yniidiproducts@gmail.com?subject=BOOM%20Demo%20Request&body=Business%20type%3A%20%0ATeam%20size%3A%20%0ACurrent%20tools%3A%20%0ARequired%20modules%3A%20%0AMain%20challenge%3A%20">Send email request</a>
-          </div>
+          <h2>Book a demo</h2>
+          <p>Send your request and we&rsquo;ll respond within one business day.</p>
+          <form class="contact-form" id="boom-contact-form" action="https://formsubmit.co/yniidiproducts@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New BOOM Demo Request">
+            <input type="hidden" name="_next" value="https://yniidi.com/thank-you/">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
+            </div>
+            <div class="form-row">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" autocomplete="organization" placeholder="Your company">
+            </div>
+            <div class="form-row">
+              <label for="current_tools">Current tools / what you&rsquo;re using now</label>
+              <input type="text" id="current_tools" name="current_tools" placeholder="e.g. Excel, Tally, custom ERP">
+            </div>
+            <div class="form-row">
+              <label for="message">Message / anything specific you want covered in the demo</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Modules, pain points, timeline, or questions for the walkthrough"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit request</button>
+          </form>
         </article>
       </div>
     </section>
@@ -134,5 +151,6 @@
     </div>
   </footer>
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/contact.js"></script>
 </body>
 </html>
