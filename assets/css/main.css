@@ -276,7 +276,11 @@ p { margin: 0 0 1rem; color: #334155; }
   font-weight: 600;
   color: #334155;
 }
+.form-row.is-hidden {
+  display: none;
+}
 .form-row input,
+.form-row select,
 .form-row textarea {
   width: 100%;
   padding: 0.75rem 0.9rem;
@@ -288,6 +292,7 @@ p { margin: 0 0 1rem; color: #334155; }
   color: var(--ink);
 }
 .form-row input:focus,
+.form-row select:focus,
 .form-row textarea:focus {
   outline: none;
   border-color: #93c5fd;
