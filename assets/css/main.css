@@ -199,6 +199,43 @@ p { margin: 0 0 1rem; color: #334155; }
 .feature-list li { margin: 0.45rem 0; }
 .feature-list li::marker { color: #2563eb; }
 
+.cost-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+  max-width: 52rem;
+}
+.cost-list li {
+  padding: 1.1rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  color: #334155;
+}
+.cost-list li strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--ink);
+}
+.mechanism-line {
+  max-width: 48rem;
+  margin: 0 auto 0.5rem;
+  text-align: center;
+  font-size: 1.05rem;
+  color: #334155;
+}
+.pricing-signal {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: #1e3a8a;
+  font-size: 0.95rem;
+}
+
 /* Pricing tiers */
 .pricing-tiers {
   display: grid;
