@@ -376,6 +376,26 @@ p { margin: 0 0 1rem; color: #334155; }
 }
 .shot img { border-radius: 12px; width: 100%; }
 
+.hero-shot {
+  padding: 0;
+  overflow: hidden;
+  height: auto;
+  align-self: stretch;
+}
+.hero-shot-stack {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.hero-shot-stack img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  border: 0;
+}
+
 .module-row-media-fill { align-items: start; }
 .module-row-media-fill .shot {
   height: auto;
