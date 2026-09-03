@@ -203,12 +203,14 @@ p { margin: 0 0 1rem; color: #334155; }
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 0.9rem;
-  max-width: 52rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 .cost-list li {
-  padding: 1.1rem 1.25rem;
+  flex: 0 1 calc((100% - 2rem) / 3);
+  padding: 1.2rem 1.25rem;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -498,6 +500,7 @@ p { margin: 0 0 1rem; color: #334155; }
   .hero-grid, .split, .card-grid, .card-grid.two, .module-row, .stat-row, .footer-grid, .pricing-tiers {
     grid-template-columns: 1fr;
   }
+  .cost-list li { flex-basis: 100%; }
   .module-row.reverse .module-copy,
   .module-row.reverse .module-media { order: unset; }
   .menu-button { display: inline-flex; align-items: center; justify-content: center; }
