@@ -3,15 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BOOM Features | Orders, Inventory, Suppliers, Payments &amp; Profit</title>
-  <meta name="description" content="What BOOM closes: orders missed in chat, stockouts nobody saw coming, supplier dues tracked from memory, and margins you can't prove. Six modules, one system you own — self-hosted, one-time license.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <title>Order, Inventory &amp; Supplier Management Software | BOOM by YNIIDI</title>
+  <meta name="description" content="Order management, inventory management, supplier dues, payments, customer and supplier portals and profit analytics in one self-hosted system. One-time license.">
+  <meta name="keywords" content="order management software, inventory management software, supplier dues tracking, purchase management, customer portal, supplier portal, profit dashboard, role-based access control, self-hosted ERP alternative">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://boom.yniidi.com/features/">
-  <meta property="og:title" content="BOOM Features — What It Replaces, Module by Module">
-  <meta property="og:description" content="Orders, inventory, purchases, payments, tasks and profit in one owned system. Self-hosted, one-time license.">
+  <link rel="alternate" type="text/plain" href="https://boom.yniidi.com/llms.txt" title="LLM">
+  <meta property="og:site_name" content="BOOM by YNIIDI">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="Order, Inventory &amp; Supplier Management Software | BOOM by YNIIDI">
+  <meta property="og:description" content="Order management, inventory, supplier dues, payments, portals and profit analytics in one system you own. Self-hosted, one-time license.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://boom.yniidi.com/features/">
-  <meta property="og:image" content="https://boom.yniidi.com/boom-logo.png">
+  <meta property="og:image" content="https://boom.yniidi.com/boom-screens/orders.png">
+  <meta property="og:image:alt" content="BOOM order management module with status tracking, billing, and customer details">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Order, Inventory &amp; Supplier Management Software | BOOM by YNIIDI">
+  <meta name="twitter:description" content="Replace WhatsApp orders and Excel stock sheets with one self-hosted system. One-time license, no per-seat fees.">
+  <meta name="twitter:image" content="https://boom.yniidi.com/boom-screens/orders.png">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
@@ -20,23 +29,72 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "BOOM",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web browser",
-    "url": "https://boom.yniidi.com/features/",
-    "description": "BOOM feature modules include orders, inventory, purchases, customers, suppliers, payments, profit analytics, tasks, portals, chat, and role-based access control.",
-    "featureList": [
-      "Order tracking with statuses, invoices, imports, and due amounts",
-      "Inventory management with SKU tracking and low-stock alerts",
-      "Purchase and supplier workflow management",
-      "Customer and supplier self-service portals",
-      "Billing, partial payments, and Razorpay integration",
-      "Profit dashboard with COGS, margin, and product performance",
-      "Task and workflow management with assignments and overdue tracking",
-      "Analytics dashboards and data export",
-      "Role-based access for Admin, Manager, Staff, Viewer, Customer, Supplier",
-      "Mobile-ready PWA with push notifications"
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://boom.yniidi.com/features/#webpage",
+        "url": "https://boom.yniidi.com/features/",
+        "name": "Order, Inventory & Supplier Management Software | BOOM by YNIIDI",
+        "description": "BOOM modules: order management, inventory management, purchase and supplier management, payments and dues, customer and supplier portals, task management and profit analytics.",
+        "isPartOf": { "@type": "WebSite", "@id": "https://boom.yniidi.com/#website", "url": "https://boom.yniidi.com/", "name": "BOOM by YNIIDI" },
+        "about": { "@id": "https://boom.yniidi.com/#software" },
+        "breadcrumb": { "@id": "https://boom.yniidi.com/features/#breadcrumb" },
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://boom.yniidi.com/features/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://boom.yniidi.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Features", "item": "https://boom.yniidi.com/features/" }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://boom.yniidi.com/#software",
+        "name": "BOOM",
+        "alternateName": ["BOOM by YNIIDI", "Business Operations & Optimization Management"],
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web browser (self-hosted)",
+        "url": "https://boom.yniidi.com/",
+        "publisher": { "@type": "Organization", "@id": "https://yniidi.com/#organization", "name": "YNIIDI", "url": "https://yniidi.com/" },
+        "description": "BOOM by YNIIDI is a self-hosted ERP alternative with modules for order management, inventory management, purchases, customers, suppliers, payments, profit analytics, tasks, customer and supplier portals, chat, and role-based access control. One-time license.",
+        "screenshot": [
+          "https://boom.yniidi.com/boom-screens/orders.png",
+          "https://boom.yniidi.com/boom-screens/inventory.png",
+          "https://boom.yniidi.com/boom-screens/profit.png"
+        ],
+        "featureList": [
+          "Order management with statuses, invoices, spreadsheet imports, and due amounts",
+          "Inventory management with SKU tracking and low-stock alerts",
+          "Purchase and supplier management with supplier dues (payables)",
+          "Customer and supplier self-service portals",
+          "Billing, partial payments, and Razorpay integration",
+          "Profit dashboard with COGS, margin, and product performance",
+          "Task and workflow management with assignments and overdue tracking",
+          "Analytics dashboards and data export",
+          "Role-based access for Admin, Manager, Staff, Viewer, Customer, Supplier with 40+ permission keys",
+          "Mobile-ready PWA with push notifications"
+        ],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "INR",
+          "lowPrice": "200000",
+          "highPrice": "500000",
+          "offerCount": "2",
+          "url": "https://boom.yniidi.com/pricing/"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://boom.yniidi.com/features/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "Does BOOM include order management?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every order gets one record from placement to payment, with status tracking, invoice numbers, due amounts, partial payments, bulk status updates and order import from spreadsheets. It replaces taking and tracking orders in WhatsApp threads." }},
+          { "@type": "Question", "name": "Can BOOM replace an Excel inventory sheet?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. BOOM's inventory management tracks stock at SKU level with categories and supplier mapping. Stock moves as orders and purchases move, and low-stock alerts appear on the dashboard before you run out." }},
+          { "@type": "Question", "name": "How does BOOM track supplier dues?", "acceptedAnswer": { "@type": "Answer", "text": "Purchases, supplier bills and pending payables are recorded against each supplier and linked to the stock they supplied, so what you owe each supplier is a lookup rather than a phone call." }},
+          { "@type": "Question", "name": "Which BOOM edition includes the customer and supplier portals?", "acceptedAnswer": { "@type": "Answer", "text": "The full BOOM edition (from ₹5,00,000, one-time license) includes the customer portal, supplier portal and payment gateway integration. BOOM Lite (from ₹2,00,000) covers the core internal modules without portals." }}
+        ]
+      }
     ]
   }
   </script>
@@ -82,7 +140,7 @@
         <div class="card-grid">
           <article class="card">
             <span class="card-icon">01</span>
-            <h3>Orders &amp; billing</h3>
+            <h3>Order management &amp; billing</h3>
             <p>An order that lives only in a chat thread can be missed, billed late, or never chased. Here every order has one record from placement to payment, with what&rsquo;s still owed sitting on it.</p>
             <ul class="feature-list">
               <li>Status tracking: pending, in-progress, delivered, cancelled</li>
@@ -93,7 +151,7 @@
           </article>
           <article class="card">
             <span class="card-icon">02</span>
-            <h3>Inventory &amp; products</h3>
+            <h3>Inventory management</h3>
             <p>The sale you lose is the one you didn&rsquo;t know you couldn&rsquo;t fulfil. Stock moves as orders and purchases move, and low stock surfaces while there&rsquo;s still time to reorder.</p>
             <ul class="feature-list">
               <li>SKU-level tracking with categories and supplier mapping</li>
@@ -104,7 +162,7 @@
           </article>
           <article class="card">
             <span class="card-icon">03</span>
-            <h3>Purchases &amp; suppliers</h3>
+            <h3>Purchase &amp; supplier management</h3>
             <p>&ldquo;How much do we owe them?&rdquo; should be a lookup, not a phone call to the one person who knows. Purchases, bills and pending payables sit against each supplier, linked to the stock they brought in.</p>
             <ul class="feature-list">
               <li>Supplier records with purchase history and contact details</li>
@@ -115,7 +173,7 @@
           </article>
           <article class="card">
             <span class="card-icon">04</span>
-            <h3>Payments &amp; collections</h3>
+            <h3>Payments, dues &amp; collections</h3>
             <p>Money owed to you and money you owe drift apart when they&rsquo;re tracked in different files. Receivables and payables sit in one view, each traced back to the order or purchase that created it.</p>
             <ul class="feature-list">
               <li>Customer payment collection with partial payment support</li>
@@ -126,7 +184,7 @@
           </article>
           <article class="card">
             <span class="card-icon">05</span>
-            <h3>Tasks &amp; workflows</h3>
+            <h3>Task &amp; workflow management</h3>
             <p>Work assigned in a chat has no owner by Friday. Every task carries an assignee, a deadline and a visible status — so you hear about a slip from the system, not from a customer.</p>
             <ul class="feature-list">
               <li>Task creation with priority, due date, and assignee</li>
@@ -137,7 +195,7 @@
           </article>
           <article class="card">
             <span class="card-icon">06</span>
-            <h3>Analytics &amp; profit</h3>
+            <h3>Profit analytics &amp; reporting</h3>
             <p>Without cost sitting next to revenue, pricing and purchasing stay guesses. BOOM puts margin on every product, so you can see what earns and what quietly eats it.</p>
             <ul class="feature-list">
               <li>Revenue, COGS, total profit, and margin over time</li>
@@ -159,7 +217,7 @@
 
         <div class="module-row">
           <div class="module-copy">
-            <h2>Order operations</h2>
+            <h2>Order management: one record per order</h2>
             <p>When orders live across chat and spreadsheets, the expensive ones are the ones nobody notices missing. One record per order — status, billing, customer context, follow-up history — so an order can&rsquo;t quietly stop moving.</p>
             <ul class="feature-list">
               <li>Searchable order lists with date filters and sort controls</li>
@@ -175,7 +233,7 @@
 
         <div class="module-row reverse">
           <div class="module-copy">
-            <h2>Inventory control</h2>
+            <h2>Inventory management: low stock before stockouts</h2>
             <p>A stockout you hear about from a customer costs the order and the confidence. Product, SKU, supplier and stock movement stay connected, so what&rsquo;s running low shows up before you have to refuse someone.</p>
             <ul class="feature-list">
               <li>Dashboard low-stock alerts before stockouts occur</li>
@@ -191,7 +249,7 @@
 
         <div class="module-row">
           <div class="module-copy">
-            <h2>Profit &amp; reporting</h2>
+            <h2>Profit dashboard &amp; reporting</h2>
             <p>Guessed margins set the wrong prices and buy the wrong stock. Revenue, cost and margin are calculated from the orders and purchases already in the system.</p>
             <p>Know which products are making money and which are draining it — without building a single formula.</p>
             <ul class="feature-list">
@@ -263,8 +321,15 @@
       <div class="container">
         <div class="geo-block">
           <h3>What is BOOM?</h3>
-          <p>BOOM (Business Operations &amp; Optimization Management) is a self-hosted, customizable business operations platform built by YNIIDI. It replaces spreadsheets and disconnected tools with a unified system for inventory management, order tracking, billing and invoicing, supplier management, purchase workflows, customer and supplier portals, payment collection, profit reporting, task management, and role-based team coordination. BOOM is offered as a one-time license with self-hosted deployment — not a recurring SaaS subscription.</p>
+          <p><strong>BOOM by YNIIDI</strong> (Business Operations &amp; Optimization Management) is a self-hosted ERP alternative sold as a one-time license. It replaces Excel inventory sheets, WhatsApp order threads and supplier dues kept from memory with one customizable system for order management and billing, inventory management, purchase and supplier management, customer and supplier dues, payment collection, customer and supplier portals, profit reporting, task management and role-based team coordination. It runs on the customer&rsquo;s own servers, with no per-seat fees and no mandatory SaaS subscription. See <a href="/pricing/">one-time license pricing</a> or <a href="/industries/">how wholesalers, distributors and manufacturers use it</a>.</p>
         </div>
+        <article class="card faq" style="margin-top: 2rem;">
+          <h2>Module questions</h2>
+          <details><summary>Does BOOM include order management?</summary><p>Yes. Every order gets one record from placement to payment, with status tracking, invoice numbers, due amounts, partial payments, bulk status updates and order import from spreadsheets. It replaces taking and tracking orders in WhatsApp threads.</p></details>
+          <details><summary>Can BOOM replace an Excel inventory sheet?</summary><p>Yes. BOOM&rsquo;s inventory management tracks stock at SKU level with categories and supplier mapping. Stock moves as orders and purchases move, and low-stock alerts appear on the dashboard before you run out.</p></details>
+          <details><summary>How does BOOM track supplier dues?</summary><p>Purchases, supplier bills and pending payables are recorded against each supplier and linked to the stock they supplied, so what you owe each supplier is a lookup rather than a phone call.</p></details>
+          <details><summary>Which BOOM edition includes the customer and supplier portals?</summary><p>The full BOOM edition (from ₹5,00,000, one-time license) includes the customer portal, supplier portal and payment gateway integration. BOOM Lite (from ₹2,00,000) covers the core internal modules without portals.</p></details>
+        </article>
         <div class="cta-band" style="margin-top: 2rem;">
           <div>
             <h2>See BOOM against your own operation</h2>

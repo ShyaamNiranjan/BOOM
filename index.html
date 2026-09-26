@@ -3,19 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BOOM | Self-Hosted Business Operations Platform</title>
-  <meta name="description" content="Your business outgrew Excel — it shouldn't hand its data to a subscription. BOOM is a self-hosted operations platform for orders, inventory, billing, and suppliers. One-time license. No SaaS lock-in.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <title>Self-Hosted ERP Alternative, One-Time License | BOOM by YNIIDI</title>
+  <meta name="description" content="BOOM by YNIIDI is a self-hosted ERP alternative for orders, inventory, supplier dues and portals. Replace Excel and WhatsApp. One-time license from ₹2,00,000.">
+  <meta name="keywords" content="self-hosted ERP alternative, business operations software, order management software, inventory management software, supplier dues tracking, customer portal, one-time license ERP, Excel inventory replacement, BOOM by YNIIDI">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://boom.yniidi.com/">
-  <meta property="og:title" content="BOOM | Self-Hosted Business Operations Platform">
-  <meta property="og:description" content="Replace spreadsheet chaos with one operations system you own — self-hosted, one-time license, no subscription lock-in.">
+  <link rel="alternate" type="text/plain" href="https://boom.yniidi.com/llms.txt" title="LLM">
+  <meta property="og:site_name" content="BOOM by YNIIDI">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="Self-Hosted ERP Alternative, One-Time License | BOOM by YNIIDI">
+  <meta property="og:description" content="One system you own for orders, inventory, supplier dues and customer portals. Self-hosted, customizable, one-time license from ₹2,00,000 — no per-seat fees.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://boom.yniidi.com/">
-  <meta property="og:image" content="https://boom.yniidi.com/boom-logo.png">
+  <meta property="og:image" content="https://boom.yniidi.com/boom-screens/hero-dashboard-top.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="576">
+  <meta property="og:image:alt" content="BOOM business operations dashboard with revenue, orders, customers, and alerts">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BOOM | Self-Hosted Business Operations Platform">
-  <meta name="twitter:description" content="A modern ERP alternative with one-time license and full customization.">
-  <meta name="twitter:image" content="https://boom.yniidi.com/boom-logo.png">
+  <meta name="twitter:title" content="Self-Hosted ERP Alternative, One-Time License | BOOM by YNIIDI">
+  <meta name="twitter:description" content="Replace Excel and WhatsApp with one self-hosted system for orders, inventory, supplier dues and portals. One-time license, no per-seat fees.">
+  <meta name="twitter:image" content="https://boom.yniidi.com/boom-screens/hero-dashboard-top.png">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
@@ -27,36 +34,124 @@
     "@graph": [
       {
         "@type": "Organization",
+        "@id": "https://yniidi.com/#organization",
+        "name": "YNIIDI",
+        "url": "https://yniidi.com/",
+        "email": "boom@yniidi.com",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "boom@yniidi.com",
+          "telephone": "+91-88386-82275",
+          "availableLanguage": ["English"]
+        }
+      },
+      {
+        "@type": "Brand",
+        "@id": "https://boom.yniidi.com/#brand",
         "name": "BOOM",
-        "url": "https://boom.yniidi.com/",
+        "alternateName": ["BOOM by YNIIDI", "BOOM ERP (YNIIDI)", "Business Operations & Optimization Management"],
         "logo": "https://boom.yniidi.com/boom-logo.png",
-        "parentOrganization": { "@type": "Organization", "name": "YNIIDI", "url": "https://yniidi.com/" }
+        "url": "https://boom.yniidi.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://boom.yniidi.com/#website",
+        "url": "https://boom.yniidi.com/",
+        "name": "BOOM by YNIIDI",
+        "inLanguage": "en-IN",
+        "publisher": { "@id": "https://yniidi.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://boom.yniidi.com/#webpage",
+        "url": "https://boom.yniidi.com/",
+        "name": "Self-Hosted ERP Alternative, One-Time License | BOOM by YNIIDI",
+        "isPartOf": { "@id": "https://boom.yniidi.com/#website" },
+        "about": { "@id": "https://boom.yniidi.com/#software" },
+        "breadcrumb": { "@id": "https://boom.yniidi.com/#breadcrumb" },
+        "primaryImageOfPage": "https://boom.yniidi.com/boom-screens/hero-dashboard-top.png",
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://boom.yniidi.com/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://boom.yniidi.com/" }
+        ]
       },
       {
         "@type": "SoftwareApplication",
+        "@id": "https://boom.yniidi.com/#software",
         "name": "BOOM",
-        "alternateName": "Business Operations & Optimization Management",
+        "alternateName": ["BOOM by YNIIDI", "Business Operations & Optimization Management"],
         "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web browser",
+        "applicationSubCategory": "ERP alternative; order, inventory and dues management software",
+        "operatingSystem": "Web browser (self-hosted on Linux or Windows Server)",
         "url": "https://boom.yniidi.com/",
-        "description": "Self-hosted business operations platform for orders, inventory, purchases, customers, suppliers, payments, analytics, and workflow management. One-time license with no mandatory SaaS subscription.",
-        "featureList": [
-          "Orders and billing workflows",
-          "Inventory and stock visibility",
-          "Supplier and purchase management",
-          "Customer and supplier portals",
-          "Role-based permissions and admin controls",
-          "Profit dashboard and analytics",
-          "One-time license and self-hosted deployment"
+        "image": "https://boom.yniidi.com/boom-screens/hero-dashboard-top.png",
+        "screenshot": [
+          "https://boom.yniidi.com/boom-screens/orders.png",
+          "https://boom.yniidi.com/boom-screens/inventory.png",
+          "https://boom.yniidi.com/boom-screens/profit.png"
         ],
-        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
+        "brand": { "@id": "https://boom.yniidi.com/#brand" },
+        "publisher": { "@id": "https://yniidi.com/#organization" },
+        "description": "BOOM by YNIIDI is a self-hosted ERP alternative sold as a one-time license. It replaces Excel inventory sheets, WhatsApp order threads and supplier dues kept from memory with one customizable system for orders, inventory, purchases, customers, suppliers, payments, tasks, customer and supplier portals, and profit analytics. No per-seat fees and no mandatory SaaS subscription.",
+        "audience": { "@type": "BusinessAudience", "audienceType": "Wholesalers, distributors, retailers, manufacturers and import/export businesses" },
+        "featureList": [
+          "Order management and billing with dues and partial payments",
+          "Inventory management with SKU tracking and low-stock alerts",
+          "Purchase and supplier management with supplier dues (payables)",
+          "Customer receivables and payment collection",
+          "Customer portal and supplier portal",
+          "Role-based access control with six roles and 40+ permission keys",
+          "Profit dashboard with COGS and margin analytics",
+          "Task management with owners and overdue tracking",
+          "Team chat and push notifications (mobile-ready PWA)",
+          "Self-hosted deployment with a one-time license"
+        ],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "INR",
+          "lowPrice": "200000",
+          "highPrice": "500000",
+          "offerCount": "2",
+          "availability": "https://schema.org/InStock",
+          "url": "https://boom.yniidi.com/pricing/",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "BOOM Lite",
+              "description": "Starting price, one-time license. Core operational modules, self-hosted. Final price depends on customization scope and deployment.",
+              "price": "200000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://boom.yniidi.com/pricing/"
+            },
+            {
+              "@type": "Offer",
+              "name": "BOOM",
+              "description": "Starting price, one-time license. Everything in BOOM Lite plus customer portal, supplier portal and payment gateway integration. Final price depends on customization scope and deployment.",
+              "price": "500000",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://boom.yniidi.com/pricing/"
+            }
+          ]
+        }
       },
       {
         "@type": "FAQPage",
+        "@id": "https://boom.yniidi.com/#faq",
         "mainEntity": [
-          { "@type": "Question", "name": "What is BOOM?", "acceptedAnswer": { "@type": "Answer", "text": "BOOM is a self-hosted business operations platform that unifies inventory, orders, billing, suppliers, workflows, and reporting in one system your company owns." }},
-          { "@type": "Question", "name": "Is BOOM an ERP?", "acceptedAnswer": { "@type": "Answer", "text": "BOOM is a modern ERP alternative focused on practical daily operations with cleaner workflows and faster adoption than traditional ERP systems." }},
-          { "@type": "Question", "name": "Is BOOM self-hosted?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. BOOM runs on your own infrastructure with a one-time license — no mandatory SaaS subscription." }}
+          { "@type": "Question", "name": "What is BOOM?", "acceptedAnswer": { "@type": "Answer", "text": "BOOM (Business Operations & Optimization Management) by YNIIDI is self-hosted business operations software. It puts orders, inventory, purchases, customers, suppliers, payments, tasks, portals and profit analytics in one system your company owns, bought once with a one-time license." }},
+          { "@type": "Question", "name": "Is BOOM an ERP system?", "acceptedAnswer": { "@type": "Answer", "text": "BOOM is an ERP alternative. It covers the daily operations mid-sized businesses actually run — order management, inventory, purchasing, supplier and customer dues, payments and reporting — without a multi-year enterprise ERP programme. It is not a global, multi-entity suite at SAP or Oracle scale." }},
+          { "@type": "Question", "name": "How much does BOOM cost?", "acceptedAnswer": { "@type": "Answer", "text": "BOOM Lite starts from ₹2,00,000 and BOOM starts from ₹5,00,000, both as a one-time license. Final price depends on customization scope and deployment. There are no per-seat fees and no mandatory SaaS subscription." }},
+          { "@type": "Question", "name": "Can BOOM replace Excel and WhatsApp for orders and inventory?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. BOOM replaces Excel inventory sheets and WhatsApp order threads with shared records: every order captured in one place, live stock with low-stock alerts, and supplier and customer dues tracked in the system. Existing spreadsheet data is imported during setup." }},
+          { "@type": "Question", "name": "Is BOOM self-hosted?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. BOOM runs on infrastructure you control — on-premise, a VPS or a private cloud. The database, backups and access policies stay with you, and you keep running BOOM even if you never speak to YNIIDI again." }},
+          { "@type": "Question", "name": "Which businesses is BOOM built for?", "acceptedAnswer": { "@type": "Answer", "text": "Wholesalers, distributors, retailers, manufacturers and import/export businesses that have outgrown spreadsheets and chat. Pricing is in INR for India, and BOOM works for operations-heavy businesses anywhere." }},
+          { "@type": "Question", "name": "Does BOOM support larger teams?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. BOOM has six built-in roles (Admin, Manager, Staff, Viewer, Customer, Supplier) and 40+ permission keys, so each person sees only what they should. Because there is no per-seat pricing, adding staff doesn't add a monthly bill." }}
         ]
       }
     ]
@@ -84,7 +179,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="kicker">Business Operations Platform</span>
+          <span class="kicker">Self-hosted ERP alternative &middot; BOOM by YNIIDI</span>
           <h1>Your business outgrew Excel. It shouldn&rsquo;t have to hand its data to a subscription instead.</h1>
           <p class="lead">Orders in WhatsApp, stock in spreadsheets, supplier balances in someone&rsquo;s memory — that&rsquo;s money leaking out every week. BOOM replaces the mess with one system you own, on your servers, for one payment.</p>
           <div class="btn-row">
@@ -227,11 +322,13 @@
       <div class="container split">
         <article class="card faq">
           <h2>Common questions</h2>
-          <details><summary>What is BOOM?</summary><p>BOOM is a unified business operations platform that helps companies manage inventory, billing, suppliers, workflows, reporting, portals, and internal coordination in one self-hosted system.</p></details>
-          <details><summary>Is BOOM an ERP system?</summary><p>BOOM is best understood as a modern ERP alternative. It centralizes inventory, billing, suppliers, workflows, portals, and reporting without the complexity and cost of traditional ERP software.</p></details>
-          <details><summary>Can BOOM replace Excel?</summary><p>Yes. BOOM replaces Excel and disconnected systems when companies need shared records, live dashboards, permissions, alerts, workflow ownership, and reporting across inventory, suppliers, billing, and team coordination.</p></details>
-          <details><summary>Does BOOM support large teams?</summary><p>Yes. BOOM supports scaling teams with role-based permissions, shared dashboards, workflow ownership, customer and supplier portals, reporting, and alerts.</p></details>
-          <details><summary>Is BOOM self-hosted?</summary><p>Yes. BOOM runs on your own system or server. You own the deployment and control the data environment — no mandatory SaaS lock-in.</p></details>
+          <details><summary>What is BOOM?</summary><p>BOOM (Business Operations &amp; Optimization Management) by YNIIDI is self-hosted business operations software. It puts orders, inventory, purchases, customers, suppliers, payments, tasks, portals and profit analytics in one system your company owns, bought once with a one-time license.</p></details>
+          <details><summary>Is BOOM an ERP system?</summary><p>BOOM is an ERP alternative. It covers the daily operations mid-sized businesses actually run &mdash; order management, inventory, purchasing, supplier and customer dues, payments and reporting &mdash; without a multi-year enterprise ERP programme. It is not a global, multi-entity suite at SAP or Oracle scale.</p></details>
+          <details><summary>How much does BOOM cost?</summary><p>BOOM Lite starts from ₹2,00,000 and BOOM starts from ₹5,00,000, both as a one-time license. Final price depends on customization scope and deployment. There are no per-seat fees and no mandatory SaaS subscription. <a href="/pricing/">See one-time license pricing</a>.</p></details>
+          <details><summary>Can BOOM replace Excel and WhatsApp for orders and inventory?</summary><p>Yes. BOOM replaces Excel inventory sheets and WhatsApp order threads with shared records: every order captured in one place, live stock with low-stock alerts, and supplier and customer dues tracked in the system. Existing spreadsheet data is imported during setup.</p></details>
+          <details><summary>Is BOOM self-hosted?</summary><p>Yes. BOOM runs on infrastructure you control &mdash; on-premise, a VPS or a private cloud. The database, backups and access policies stay with you, and you keep running BOOM even if you never speak to YNIIDI again.</p></details>
+          <details><summary>Which businesses is BOOM built for?</summary><p>Wholesalers, distributors, retailers, manufacturers and import/export businesses that have outgrown spreadsheets and chat. Pricing is in INR for India, and BOOM works for operations-heavy businesses anywhere.</p></details>
+          <details><summary>Does BOOM support larger teams?</summary><p>Yes. BOOM has six built-in roles (Admin, Manager, Staff, Viewer, Customer, Supplier) and 40+ permission keys, so each person sees only what they should. Because there is no per-seat pricing, adding staff doesn&rsquo;t add a monthly bill.</p></details>
         </article>
         <article class="card" id="who-its-for">
           <h2>Who BOOM is for</h2>
@@ -251,7 +348,8 @@
       <div class="container">
         <div class="geo-block">
           <h3>BOOM at a glance</h3>
-          <p><strong>BOOM</strong> (Business Operations &amp; Optimization Management) is a self-hosted, customizable business operations platform by <a href="https://yniidi.com/">YNIIDI</a>. It is an ERP alternative for wholesalers, retailers, distributors, and operations-heavy teams. Core capabilities include order management, inventory control, purchase and supplier workflows, billing and payment collection (including Razorpay), profit and analytics dashboards, task management, customer and supplier portals, internal chat, role-based access control, and mobile-ready PWA with push notifications. BOOM is sold as a one-time license with self-hosted deployment — not a recurring SaaS subscription.</p>
+          <p><strong>BOOM by YNIIDI</strong> (Business Operations &amp; Optimization Management) is a self-hosted ERP alternative sold as a one-time license, built by <a href="https://yniidi.com/">YNIIDI</a>. It lets <a href="/industries/">wholesalers, distributors, retailers, manufacturers and import/export businesses</a> run orders, inventory, purchases, supplier and customer dues, and profit analytics in one system they own &mdash; instead of Excel, WhatsApp and SaaS subscriptions.</p>
+          <p>Core modules include <a href="/features/">order management and billing, inventory management, purchase and supplier management</a>, payment collection (including Razorpay), a profit dashboard, task management, customer and supplier portals, internal chat, and role-based access control with six roles and 40+ permission keys. BOOM runs on the customer&rsquo;s own servers &mdash; on-premise, VPS or private cloud &mdash; and is customized to their workflows. <a href="/pricing/">BOOM Lite starts from ₹2,00,000 and BOOM from ₹5,00,000</a> (one-time license, India), with no per-seat fees and no mandatory subscription.</p>
         </div>
         <div class="cta-band" style="margin-top: 2rem;">
           <div>
