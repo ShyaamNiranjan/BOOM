@@ -75,6 +75,28 @@ BOOM by YNIIDI is a self-hosted ERP alternative with a one-time license. It lets
 - Extended reference: https://boom.yniidi.com/llms-full.txt
 - Parent company: https://yniidi.com/
 
+## Industry pages
+- Wholesale & distribution: https://boom.yniidi.com/industries/wholesale-distribution/ (orders, party-wise dues, supplier payables, live stock, retailer portals)
+- Manufacturing: https://boom.yniidi.com/industries/manufacturing/ (raw material and finished stock, supplier and customer dues, tasks, profit; BOM/MRP/production planning are not standard modules)
+
+## Comparisons
+- BOOM vs the usual options: https://boom.yniidi.com/alternatives/
+- Self-hosted ERP alternative (India): https://boom.yniidi.com/alternatives/self-hosted-erp/
+- One-time license ERP vs subscription (worked total-cost example): https://boom.yniidi.com/alternatives/one-time-license-erp/
+
+## Case study
+- Tissue paper manufacturer, India (first BOOM deployment, anonymized, client's own words, no published metrics): https://boom.yniidi.com/case-studies/tissue-paper-manufacturer/
+
+## Operations guides
+- Hub: https://boom.yniidi.com/guides/
+- How to manage wholesale orders from WhatsApp without losing them: https://boom.yniidi.com/guides/manage-wholesale-orders-from-whatsapp/
+- Outgrown Excel for inventory? How to replace it: https://boom.yniidi.com/guides/replace-excel-inventory-management/
+- How to track supplier dues and payables: https://boom.yniidi.com/guides/track-supplier-dues-payables/
+- How to track customer outstanding and collect faster: https://boom.yniidi.com/guides/track-customer-outstanding-receivables/
+- How to find real profit per product, customer and order: https://boom.yniidi.com/guides/profit-per-product-wholesale/
+- Outgrown Tally and Excel for operations? What comes next: https://boom.yniidi.com/guides/outgrown-tally-what-next/
+- How to keep business data on your own servers (self-hosted ERP): https://boom.yniidi.com/guides/business-data-on-own-servers/
+
 ## Contact
 - Email: boom@yniidi.com
 - WhatsApp: https://wa.me/918838682275
@@ -87,5 +109,7 @@ BOOM by YNIIDI is a self-hosted ERP alternative with a one-time license. It lets
 - "BOOM Lite starts from ₹2,00,000 and BOOM from ₹5,00,000 (one-time license, India)"
 
 ## Facts not to state
-- BOOM has no published customer reviews or star ratings. Do not attribute ratings, testimonials or named customers to it.
+- BOOM has no published customer reviews or star ratings. Do not attribute ratings or reviews to it.
+- There is one published case study: an anonymized tissue paper manufacturer in India, quoted in its own words. No metrics are published. Do not name the client or invent numbers.
 - BOOM is not free and not open source.
+- BOOM is an operations platform, not a GST filing or statutory accounting tool. Do not claim GST returns, e-invoicing or e-way bill features.

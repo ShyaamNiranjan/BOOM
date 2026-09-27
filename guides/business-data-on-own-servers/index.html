@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keep Business Data on Your Own Servers: Self-Hosted ERP | BOOM</title>
+  <meta name="description" content="How to keep business data on your own servers with a self-hosted ERP: SaaS lock-in risks, what you need (server, backups, access control) and your real duties.">
+  <meta name="keywords" content="self-hosted ERP, business data on own server, on-premise ERP India, data sovereignty, SaaS lock-in, ERP backup and restore, VPS hosting for business software">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://boom.yniidi.com/guides/business-data-on-own-servers/">
+  <link rel="alternate" type="text/plain" href="https://boom.yniidi.com/llms.txt" title="LLM">
+  <meta property="og:site_name" content="BOOM by YNIIDI">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="How to keep your business data on your own servers (self-hosted ERP)">
+  <meta property="og:description" content="What self-hosting gives you, what it costs you in responsibility, and how to set up server, backups and access control properly.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://boom.yniidi.com/guides/business-data-on-own-servers/">
+  <meta property="og:image" content="https://boom.yniidi.com/boom-screens/admin-panel.png">
+  <meta property="og:image:alt" content="BOOM admin panel with complete database backup download and database restore">
+  <meta property="article:published_time" content="2026-09-27">
+  <meta property="article:modified_time" content="2026-09-27">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to keep your business data on your own servers (self-hosted ERP)">
+  <meta name="twitter:description" content="Data sovereignty without the hype: server, backups, access control and an exit plan. An honest guide to self-hosting business software.">
+  <meta name="twitter:image" content="https://boom.yniidi.com/boom-screens/admin-panel.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://boom.yniidi.com/guides/business-data-on-own-servers/#article",
+        "headline": "How to keep your business data on your own servers (self-hosted ERP)",
+        "description": "How to keep business data on your own servers with a self-hosted ERP: SaaS lock-in risks, what you need (server, backups, access control) and your real duties.",
+        "image": "https://boom.yniidi.com/boom-screens/admin-panel.png",
+        "author": { "@type": "Organization", "@id": "https://yniidi.com/#organization", "name": "YNIIDI", "url": "https://yniidi.com/" },
+        "publisher": { "@type": "Organization", "@id": "https://yniidi.com/#organization", "name": "YNIIDI", "url": "https://yniidi.com/" },
+        "datePublished": "2026-09-27",
+        "dateModified": "2026-09-27",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://boom.yniidi.com/guides/business-data-on-own-servers/" },
+        "about": { "@id": "https://boom.yniidi.com/#software" },
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://boom.yniidi.com/guides/business-data-on-own-servers/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://boom.yniidi.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://boom.yniidi.com/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Business data on your own servers", "item": "https://boom.yniidi.com/guides/business-data-on-own-servers/" }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://boom.yniidi.com/guides/business-data-on-own-servers/#howto",
+        "name": "How to keep your business data on your own servers",
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Choose where the server lives", "text": "Pick an on-premise server in your office, a VPS from a hosting provider, or a private cloud instance, based on your power, internet, budget and in-house skills." },
+          { "@type": "HowToStep", "position": 2, "name": "Put the accounts in the company's name", "text": "Register the hosting account, domain and server credentials to a company email and keep them with the owner, not with a developer or employee personally." },
+          { "@type": "HowToStep", "position": 3, "name": "Set up backups and test restores", "text": "Follow the 3-2-1 rule: three copies of the data, on two different kinds of storage, with one copy off-site. Restore a backup to a test machine regularly to prove it works." },
+          { "@type": "HowToStep", "position": 4, "name": "Control access", "text": "Give every person an individual login with a role that limits what they can see, remove access the day someone leaves, and protect the hosting account with two-factor authentication." },
+          { "@type": "HowToStep", "position": 5, "name": "Keep the server secure and updated", "text": "Apply operating system updates, use HTTPS, close unused ports with a firewall and keep the server's admin access limited to named people." },
+          { "@type": "HowToStep", "position": 6, "name": "Decide who is called when it breaks", "text": "Name the person or IT partner responsible for uptime and recovery, and write down the steps to restore service." },
+          { "@type": "HowToStep", "position": 7, "name": "Keep an exit plan", "text": "Make sure all data can be exported in open formats such as CSV or JSON, so you can move or rebuild without depending on any single vendor." }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://boom.yniidi.com/guides/business-data-on-own-servers/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "What does self-hosted ERP mean?", "acceptedAnswer": { "@type": "Answer", "text": "A self-hosted ERP is business software installed on a server your company controls, such as an office server, a VPS or a private cloud account, instead of running on the software vendor’s shared cloud. Your company holds the database, the backups and the access rules." }},
+          { "@type": "Question", "name": "Is self-hosting safer than cloud SaaS?", "acceptedAnswer": { "@type": "Answer", "text": "Not automatically. Self-hosting gives you control over where data lives and who can reach it, but safety depends on how well the server, backups and access are managed. A well-run SaaS can be safer than a neglected office server." }},
+          { "@type": "Question", "name": "Does self-hosted mean no running costs?", "acceptedAnswer": { "@type": "Answer", "text": "No. You avoid a software subscription, but you still pay for hosting or hardware, power and internet, and someone’s time to look after backups, updates and access. Plan for those costs honestly." }},
+          { "@type": "Question", "name": "What do I need to run BOOM on my own server?", "acceptedAnswer": { "@type": "Answer", "text": "An on-premise server, a VPS or a private cloud instance running Linux or Windows Server with a standard web stack, plus a named person responsible for backups and access. YNIIDI installs and configures BOOM on your server during deployment and trains your admin on users, permissions and backups." }},
+          { "@type": "Question", "name": "Can I get all my data out of BOOM?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. BOOM’s admin panel offers a complete JSON backup of customers, orders, products, payments, suppliers and purchases, a restore option, and CSV exports of individual tables. These functions are limited to users with admin roles." }}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-page="guides">
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/"><img class="brand-logo" src="/boom-logo.png" alt="BOOM logo"><span>BOOM</span></a>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <nav class="nav-links" id="site-nav" aria-label="Primary">
+        <a href="/" data-page="home">Home</a>
+        <a href="/features/" data-page="features">Features</a>
+        <a href="/industries/" data-page="industries">Industries</a>
+        <a href="/guides/" data-page="guides">Guides</a>
+        <a href="/pricing/" data-page="pricing">Pricing</a>
+        <a href="/security/" data-page="security">Security</a>
+        <a href="/deployment/" data-page="deployment">Deployment</a>
+        <a href="/contact/" data-page="contact" class="nav-cta">Book Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container article">
+        <nav class="breadcrumb muted" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/guides/">Guides</a> / <span aria-current="page">Business data on your own servers</span></nav>
+        <span class="kicker">Guide &middot; Self-hosting &amp; data ownership</span>
+        <h1>How to keep your business data on your own servers (self-hosted ERP)</h1>
+        <p class="article-meta">9 min read &middot; Updated 27 Sep 2026</p>
+        <div class="answer-box">
+          <p><strong>Short answer:</strong> run your business software and its database on a server your company controls &mdash; an office server, a VPS or a private cloud account registered in the company&rsquo;s name &mdash; instead of on a vendor&rsquo;s shared cloud. That gives you control over where the data lives, who can reach it, and whether you keep running regardless of any vendor&rsquo;s pricing or future. In exchange, you own the responsibilities: the server, backups you actually test, updates, access control, and a named person accountable for them.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container article">
+        <div class="article-body">
+          <h2>Why owners start asking where their data lives</h2>
+          <p>For a wholesaler, distributor or manufacturer, the operational data <em>is</em> the business: every customer, the rate each one gets, who owes what, which suppliers you depend on, what sells and at what margin. It usually takes years to build. The questions owners ask when they think about moving it into software are very practical:</p>
+          <ul>
+            <li>&ldquo;If this app company raises prices next year, what do I do?&rdquo;</li>
+            <li>&ldquo;If I stop paying, can I still see my own orders and dues?&rdquo;</li>
+            <li>&ldquo;Can I take all my data out, in a form I can actually open?&rdquo;</li>
+            <li>&ldquo;Every new staff member adds a per-user fee. Why am I paying rent on my own team?&rdquo;</li>
+            <li>&ldquo;Who else can see my customer list and my rates?&rdquo;</li>
+          </ul>
+          <p>These are fair questions, and they are not an argument that cloud software is bad. Subscription software works well for many businesses. But it helps to be clear about what lock-in looks like:</p>
+          <ul>
+            <li><strong>Pricing you do not control.</strong> Plans, per-seat rates and feature tiers can change after your business depends on the tool.</li>
+            <li><strong>Access that depends on payment.</strong> If the subscription lapses or the account is suspended, access to your history can stop with it.</li>
+            <li><strong>Exports that are partial.</strong> Some tools let you download reports but not the complete, linked records you would need to move elsewhere.</li>
+            <li><strong>Customization limits.</strong> Shared platforms serve many customers with one product, so your particular workflow may never fit.</li>
+            <li><strong>Vendor continuity.</strong> Products are discontinued, merged or acquired. Your operations should not depend on that.</li>
+          </ul>
+
+          <h2>What self-hosting actually requires</h2>
+          <p>Self-hosting is not free and it is not magic. It moves responsibility from a vendor to you. Before choosing it, be honest about whether your business can carry these, either in-house or through an IT partner.</p>
+          <ol>
+            <li><strong>Choose where the server lives.</strong> An <em>on-premise server</em> in your office needs reliable power with UPS backup, a stable internet line if anyone works remotely, and a physically secure spot. A <em>VPS</em> from a hosting provider removes the hardware worry but has its own monthly or yearly hosting bill &mdash; an infrastructure cost, not a software subscription. A <em>private cloud</em> instance suits businesses that already have cloud accounts and someone who manages them.</li>
+            <li><strong>Put the accounts in the company&rsquo;s name.</strong> The hosting account, domain and server passwords must belong to the company, registered to a company email, with the owner holding the master credentials. The most common self-hosting failure in small businesses is a server that only the developer or one ex-employee could log in to.</li>
+            <li><strong>Set up backups, and test restores.</strong> Follow the 3-2-1 rule: three copies of the data, on two different kinds of storage, with one copy off-site. Automate the schedule. Then, at least once a quarter, restore a backup to a test machine and check the data. A backup that has never been restored is only a hope.</li>
+            <li><strong>Control access.</strong> Every person gets an individual login &mdash; no shared passwords &mdash; with a role that limits what they can see. Remove access the day someone leaves. Turn on two-factor authentication for the hosting account.</li>
+            <li><strong>Keep the server secure and updated.</strong> Apply operating system updates, serve the application over HTTPS, close unused ports with a firewall, and keep server admin access to a small number of named people.</li>
+            <li><strong>Decide who is called when it breaks.</strong> Name the person or IT partner responsible for uptime and recovery, and write the recovery steps down where the owner can find them.</li>
+            <li><strong>Keep an exit plan.</strong> Make sure all data can be exported in open formats such as CSV or JSON. Ownership means being able to move, not just being able to stay.</li>
+          </ol>
+
+          <h2>Comparing your options honestly</h2>
+          <div class="table-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr><th>Option</th><th>Who it fits</th><th>Trade-off</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Excel files on a PC or shared drive</td><td>Very small teams just getting started</td><td>You hold the files, but there is no real access control, version history is messy and one crashed laptop can cost weeks</td></tr>
+                <tr><td>Monthly cloud SaaS</td><td>Businesses that want zero server responsibility and standard workflows</td><td>Recurring fees, often per user; data on the vendor&rsquo;s infrastructure; access tied to the subscription</td></tr>
+                <tr><td>Self-built or open-source software you run yourself</td><td>Businesses with a capable in-house developer or IT team</td><td>Full control, but you carry setup, customization, fixes and upgrades entirely on your own</td></tr>
+                <tr><td>Vendor-installed self-hosted system such as BOOM</td><td>Operations-heavy SMEs that want ownership and customization without building from scratch</td><td>Upfront one-time license; you still own the server, hosting costs, backups and access</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>How this works in BOOM</h2>
+          <p>BOOM by YNIIDI is built for the fourth row. It is installed on infrastructure you control &mdash; an on-premise server, a VPS or a private cloud instance, on Linux or Windows Server with a standard web stack. The database, the backups and the access rules stay with you, and you keep running BOOM even if you never speak to YNIIDI again.</p>
+          <figure class="shot">
+            <img src="/boom-screens/admin-panel.png" alt="BOOM admin panel showing a complete database backup download covering customers, orders, products, payments, suppliers and purchases, and a database restore option" loading="lazy">
+          </figure>
+          <ul>
+            <li><strong>Complete backup from the admin panel:</strong> download a full JSON backup of customers, orders, products, payments, suppliers and purchases.</li>
+            <li><strong>Restore:</strong> restore the database from a backup file, with a clear warning that it overwrites current data.</li>
+            <li><strong>CSV exports:</strong> export customers, orders, customer payments, products, suppliers, purchases and supplier payments as separate CSV files for analysis, your accountant, or a future move.</li>
+            <li><strong>Admin-only data functions:</strong> backup, restore and export are limited to users with admin roles.</li>
+            <li><strong>Role-based access:</strong> six roles &mdash; Admin, Manager, Staff, Viewer, Customer, Supplier &mdash; with 40+ permission keys and route-level guards, so each login sees only what it should.</li>
+            <li><strong>Setup and training included in deployment:</strong> YNIIDI installs BOOM on your server, migrates your spreadsheet data, and trains your admin on settings, users, permissions and backups. See <a href="/deployment/">deployment</a> and <a href="/security/">security</a>.</li>
+            <li><strong>One-time license, no per-seat fees:</strong> BOOM Lite from &#8377;2,00,000, BOOM from &#8377;5,00,000. No mandatory subscription. Final price depends on scope.</li>
+          </ul>
+          <p>What BOOM does not do for you: pay your hosting bill, keep your office server powered, or copy backups off-site on your behalf. Those remain your responsibilities, which is exactly what owning the system means.</p>
+
+          <h2>When BOOM is not the right fit</h2>
+          <ul>
+            <li><strong>You want zero IT responsibility.</strong> If nobody in the business, and no IT partner, will own the server and backups, a well-run SaaS is the more responsible choice.</li>
+            <li><strong>You want the lowest possible monthly cost.</strong> BOOM is a one-time investment starting at &#8377;2,00,000, plus your hosting.</li>
+            <li><strong>You are a solo or very small operation.</strong> The overhead of running a server will outweigh the benefit.</li>
+            <li><strong>You need accounting and GST compliance software.</strong> BOOM is an operations system and runs alongside your accounting software; it does not replace it.</li>
+            <li><strong>You need a global, multi-entity enterprise suite.</strong> BOOM is not built for SAP-scale deployments.</li>
+          </ul>
+        </div>
+
+        <div class="card faq" style="margin-top: 2rem;">
+          <h2>Frequently asked questions</h2>
+          <details><summary>What does self-hosted ERP mean?</summary><p>A self-hosted ERP is business software installed on a server your company controls, such as an office server, a VPS or a private cloud account, instead of running on the software vendor&rsquo;s shared cloud. Your company holds the database, the backups and the access rules.</p></details>
+          <details><summary>Is self-hosting safer than cloud SaaS?</summary><p>Not automatically. Self-hosting gives you control over where data lives and who can reach it, but safety depends on how well the server, backups and access are managed. A well-run SaaS can be safer than a neglected office server.</p></details>
+          <details><summary>Does self-hosted mean no running costs?</summary><p>No. You avoid a software subscription, but you still pay for hosting or hardware, power and internet, and someone&rsquo;s time to look after backups, updates and access. Plan for those costs honestly.</p></details>
+          <details><summary>What do I need to run BOOM on my own server?</summary><p>An on-premise server, a VPS or a private cloud instance running Linux or Windows Server with a standard web stack, plus a named person responsible for backups and access. YNIIDI installs and configures BOOM on your server during deployment and trains your admin on users, permissions and backups.</p></details>
+          <details><summary>Can I get all my data out of BOOM?</summary><p>Yes. BOOM&rsquo;s admin panel offers a complete JSON backup of customers, orders, products, payments, suppliers and purchases, a restore option, and CSV exports of individual tables. These functions are limited to users with admin roles.</p></details>
+        </div>
+
+        <div class="article-cta">
+          <h2>Talk through your hosting setup</h2>
+          <p>Tell us whether you have an office server, a VPS or nothing yet. We&rsquo;ll explain what running BOOM on it would involve, including the parts that stay your responsibility.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="/contact/?source=guide-self-hosted">Book a demo</a>
+            <a class="btn btn-outline" href="https://wa.me/918838682275" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
+          </div>
+        </div>
+
+        <nav class="related-links" aria-label="Related guides">
+          <h2>Related guides</h2>
+          <ul>
+            <li><a href="/guides/outgrown-tally-what-next/">Outgrown Tally and Excel for operations? What comes next</a></li>
+            <li><a href="/guides/replace-excel-inventory-management/">How to replace Excel for inventory management</a></li>
+            <li><a href="/guides/track-customer-outstanding-receivables/">How to track customer outstanding and collect payments faster</a></li>
+            <li><a href="/features/">All BOOM features</a></li>
+            <li><a href="/pricing/">BOOM pricing: one-time license</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="/"><img class="brand-logo" src="/boom-logo.png" alt=""><span>BOOM</span></a>
+        <p class="muted" style="margin-top:0.75rem">Business Operations &amp; Optimization Management &mdash; a self-hosted platform for inventory, billing, suppliers, and workflows.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul class="footer-links">
+          <li><a href="/features/">Features</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li><a href="/industries/wholesale-distribution/">Wholesale &amp; distribution</a></li>
+          <li><a href="/industries/manufacturing/">Manufacturing</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/security/">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/alternatives/">BOOM vs alternatives</a></li>
+          <li><a href="/alternatives/self-hosted-erp/">Self-hosted ERP alternative</a></li>
+          <li><a href="/alternatives/one-time-license-erp/">One-time license ERP</a></li>
+          <li><a href="/case-studies/tissue-paper-manufacturer/">Case study</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Deploy</h4>
+        <ul class="footer-links">
+          <li><a href="/deployment/">Deployment</a></li>
+          <li><a href="/contact/">Book Demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>YNIIDI</h4>
+        <ul class="footer-links">
+          <li><a href="https://yniidi.com/" target="_blank" rel="noopener noreferrer">yniidi.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; BOOM. All rights reserved.</span>
+      <span>Self-hosted &middot; One-time license &middot; Fully customizable</span>
+    </div>
+  </footer>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

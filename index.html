@@ -37,6 +37,7 @@
         "@id": "https://yniidi.com/#organization",
         "name": "YNIIDI",
         "url": "https://yniidi.com/",
+        "sameAs": ["https://www.linkedin.com/company/yniidi/", "https://yniidi.com/"],
         "email": "boom@yniidi.com",
         "contactPoint": {
           "@type": "ContactPoint",
@@ -167,6 +168,7 @@
         <a href="/" data-page="home">Home</a>
         <a href="/features/" data-page="features">Features</a>
         <a href="/industries/" data-page="industries">Industries</a>
+        <a href="/guides/" data-page="guides">Guides</a>
         <a href="/pricing/" data-page="pricing">Pricing</a>
         <a href="/security/" data-page="security">Security</a>
         <a href="/deployment/" data-page="deployment">Deployment</a>
@@ -297,6 +299,7 @@
               <a class="btn btn-outline" href="/pricing/">Compare pricing &amp; ownership</a>
               <a class="btn btn-primary" href="/deployment/">See deployment options</a>
             </div>
+            <a class="card-link" href="/alternatives/">Compare BOOM with SaaS ERP and desktop software &rarr;</a>
           </div>
           <div class="module-media shot">
             <img src="/boom-screens/customers.png" alt="BOOM customer management with records, segments, and portal access" loading="lazy">
@@ -310,9 +313,10 @@
         <div class="section-head">
           <h2>Built against a real operation — not a spec sheet</h2>
           <p class="lead">BOOM started with a manufacturing business running on Excel and WhatsApp: outdated stock counts, supplier dues tracked from memory, and orders that sometimes went missing. The product was built module by module against that operation.</p>
-          <p class="muted">As we add more deployments and measurable results, this section will hold them. Until then: the product comes from a real operational problem, not a generic ERP pitch.</p>
+          <p class="muted">That business &mdash; a tissue paper manufacturer in India &mdash; became BOOM&rsquo;s first deployment. The case study covers what was customized and what changed, in the client&rsquo;s own words. It is one deployment, so we don&rsquo;t publish metrics or claim results beyond what the client said.</p>
         </div>
         <div class="btn-row">
+          <a class="btn btn-outline" href="/case-studies/tissue-paper-manufacturer/">Read the case study</a>
           <a class="btn btn-primary" href="/contact/">Talk about your operation</a>
         </div>
       </div>
@@ -344,6 +348,40 @@
       </div>
     </section>
 
+    <section class="section" id="guides">
+      <div class="container">
+        <div class="section-head">
+          <h2>Guides for operators</h2>
+          <p class="lead">Practical fixes for the problems above, most of which you can start this week without buying anything.</p>
+        </div>
+        <div class="card-grid two">
+          <article class="guide-card">
+            <h3><a href="/guides/manage-wholesale-orders-from-whatsapp/">How to manage wholesale orders from WhatsApp without losing them</a></h3>
+            <p>Why orders slip through chat threads, and a capture routine that works this week.</p>
+            <a class="guide-link" href="/guides/manage-wholesale-orders-from-whatsapp/">Read the guide &rarr;</a>
+          </article>
+          <article class="guide-card">
+            <h3><a href="/guides/replace-excel-inventory-management/">Outgrown Excel for inventory? How to replace it</a></h3>
+            <p>The signs your stock sheet has stopped being true, and the honest options for replacing it.</p>
+            <a class="guide-link" href="/guides/replace-excel-inventory-management/">Read the guide &rarr;</a>
+          </article>
+          <article class="guide-card">
+            <h3><a href="/guides/track-supplier-dues-payables/">How to track supplier dues and payables without memory or notebooks</a></h3>
+            <p>Know what you owe each supplier, bill by bill, without calling the one person who remembers.</p>
+            <a class="guide-link" href="/guides/track-supplier-dues-payables/">Read the guide &rarr;</a>
+          </article>
+          <article class="guide-card">
+            <h3><a href="/guides/track-customer-outstanding-receivables/">How to track customer outstanding and collect faster</a></h3>
+            <p>See who owes you what and since when, and build a follow-up routine that brings money in sooner.</p>
+            <a class="guide-link" href="/guides/track-customer-outstanding-receivables/">Read the guide &rarr;</a>
+          </article>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-outline" href="/guides/">All operations guides</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section alt">
       <div class="container">
         <div class="geo-block">
@@ -366,15 +404,27 @@
     <div class="container footer-grid">
       <div>
         <a class="brand" href="/"><img class="brand-logo" src="/boom-logo.png" alt=""><span>BOOM</span></a>
-        <p class="muted" style="margin-top:0.75rem">Business Operations &amp; Optimization Management — a self-hosted platform for inventory, billing, suppliers, and workflows.</p>
+        <p class="muted" style="margin-top:0.75rem">Business Operations &amp; Optimization Management &mdash; a self-hosted platform for inventory, billing, suppliers, and workflows.</p>
       </div>
       <div>
         <h4>Product</h4>
         <ul class="footer-links">
           <li><a href="/features/">Features</a></li>
           <li><a href="/industries/">Industries</a></li>
+          <li><a href="/industries/wholesale-distribution/">Wholesale &amp; distribution</a></li>
+          <li><a href="/industries/manufacturing/">Manufacturing</a></li>
           <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/security/">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/alternatives/">BOOM vs alternatives</a></li>
+          <li><a href="/alternatives/self-hosted-erp/">Self-hosted ERP alternative</a></li>
+          <li><a href="/alternatives/one-time-license-erp/">One-time license ERP</a></li>
+          <li><a href="/case-studies/tissue-paper-manufacturer/">Case study</a></li>
         </ul>
       </div>
       <div>
@@ -392,8 +442,8 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <span>© BOOM. All rights reserved.</span>
-      <span>Self-hosted · One-time license · Fully customizable</span>
+      <span>&copy; BOOM. All rights reserved.</span>
+      <span>Self-hosted &middot; One-time license &middot; Fully customizable</span>
     </div>
   </footer>
   <script src="/assets/js/main.js"></script>

@@ -8,6 +8,53 @@
   const contactDetailRow = document.getElementById("contact-detail-row");
   const contactDetailLabel = document.getElementById("contact-detail-label");
   const contactDetailInput = document.getElementById("contact-detail");
+  const subjectInput = form.querySelector('input[name="_subject"]');
+  const sourceInput = document.getElementById("boom-source");
+  const landingInput = document.getElementById("boom-landing-page");
+  const referrerInput = document.getElementById("boom-referrer");
+  const lastSourceInput = document.getElementById("boom-last-source");
+
+  const readTouch = (key) => {
+    try {
+      const raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const describeSource = (touch) => {
+    if (!touch || !touch.source) return "";
+    return [touch.source, touch.utm_medium, touch.utm_campaign].filter(Boolean).join(" / ");
+  };
+
+  const referrerHost = (referrer) => {
+    if (!referrer || referrer === "direct") return "";
+    try {
+      const host = new URL(referrer).hostname;
+      return host === window.location.hostname ? "" : host.replace(/^www\./, "");
+    } catch (e) {
+      return "";
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const urlSource = params.get("source") || params.get("utm_source") || "";
+  const firstTouch = readTouch("boom_attr");
+  const lastTouch = readTouch("boom_last");
+
+  const sourceName = urlSource || (firstTouch && firstTouch.source) || "";
+  if (sourceInput) sourceInput.value = urlSource || describeSource(firstTouch);
+  if (landingInput) landingInput.value = (firstTouch && firstTouch.landing) || window.location.pathname;
+  if (referrerInput) referrerInput.value = (firstTouch && firstTouch.referrer) || document.referrer || "direct";
+  if (lastSourceInput && lastTouch) {
+    lastSourceInput.value = [
+      describeSource(lastTouch) || referrerHost(lastTouch.referrer) || "direct",
+      lastTouch.landing,
+      lastTouch.ts,
+    ].filter(Boolean).join(" | ");
+  }
+  const subjectSource = sourceName || referrerHost(referrerInput ? referrerInput.value : "") || "direct";
 
   const updateContactDetailField = () => {
     if (!mediumSelect || !contactDetailRow || !contactDetailLabel || !contactDetailInput) return;
@@ -43,6 +90,9 @@
   }
 
   form.addEventListener("submit", () => {
+    if (subjectInput) {
+      subjectInput.value = `New BOOM Demo Request — ${subjectSource}`;
+    }
     if (replyto) {
       if (mediumSelect?.value === "E-Mail" && contactDetailInput) {
         replyto.value = contactDetailInput.value.trim();
